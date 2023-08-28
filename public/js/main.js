@@ -1,5 +1,24 @@
 var mymap = L.map('map');
 
+// 地点検索コントローラー
+var osmGeocoder = new L.Control.OSMGeocoder({
+    collapsed: false,
+    text: '検索',
+    placeholder: '地点名、住所を入力',
+    position: 'topright',
+    callback: function(results) {
+        var coords = L.latLng(results[0].lat, results[0].lon);
+        var foundIcon = L.divIcon({
+            className: 'found-icon',
+            iconAnchor: [8, 8],
+        });
+        L.marker(coords, {icon: foundIcon}).addTo(mymap);
+        mymap.setView(coords, 17);
+    }
+});
+
+mymap.addControl(osmGeocoder);
+
 // 地理院タイル
 var gsi = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
     minZoom: 2,
