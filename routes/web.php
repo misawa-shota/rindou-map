@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\ToppageController;
+use App\Http\Controllers\ToppageController;
+use App\Http\Controllers\MapController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +17,11 @@ use app\Http\Controllers\ToppageController;
 */
 
 Route::get('/', [ToppageController::class, 'index']);
+// Route::get('/', function(){
+//     return view('welcome');
+// });
+
+Route::resource('maps', MapController::class)->middleware(['auth', 'verified']);
+Auth::routes(['verify' => true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

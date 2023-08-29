@@ -8,6 +8,6 @@ class ToppageController extends Controller
 {
     public function index()
     {
-        return view('toppage, index');
+        return view('toppage.index');
     }
 }
