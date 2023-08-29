@@ -6,19 +6,28 @@
 }
 
 .found-icon {
-	width:3em !important;
-	height: 3em !important;
-	border-radius: 3em;
-	border: 0.8em solid #FF4730;
-	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-	background-color: #fff;
+	width:4em !important;
+	height: 4em !important;
+	border-radius: 50%;
+	background-color: #FF4730;
     position: relative;
+}
+
+.found-icon::after {
+    content: '';
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background-color: #fff;
 }
 
 .found-icon::before {
     position: absolute;
-    top: 0.1em;
-    left: -0.25em;
+    top: 55%;
+    left: 12.5%;
     content: '▼';
     font-size: 3em;
     color: #FF4730;

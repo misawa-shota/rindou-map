@@ -64,3 +64,20 @@ gsi.addTo(mymap);
 
 // 初期表示の中心座標とズームレベル
 mymap.setView([37.508106, 139.930239], 13);
+
+// Locate
+var option = {
+    position: 'topright',
+    strings: {
+        title: '現在地を表示',
+        popup: '現在地',
+    },
+    locateOptions: {
+        maxZoom: 16,
+    }
+}
+
+var lc = L.control.locate(option).addTo(mymap);
+
+// 初期状態で現在地を表示
+lc.start();
