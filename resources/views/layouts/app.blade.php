@@ -16,9 +16,6 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!-- leaflet.css -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
@@ -27,6 +24,9 @@
 
     <!-- leaflet.locate -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+
+    <!-- fullscreen.css -->
+    <link rel="stylesheet" href="{{ asset('css/Control.FullScreen.css') }}" />
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -56,6 +56,9 @@
 
     <!-- leaflet.locate.js -->
     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+    <!-- fullscreen.js -->
+    <script src="{{ asset('js/Control.FullScreen.js') }}"></script>
 
     <!-- js -->
     <script src="{{ asset('js/main.js') }}"></script>

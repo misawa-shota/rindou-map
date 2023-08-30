@@ -1,4 +1,11 @@
-var mymap = L.map('map');
+var mymap = new L.map('map', {
+    fullscreenControl: true,
+    fullscreenControlOptions: {
+        position: 'topleft',
+        title: 'フルスクリーン表示',
+        titleCancel: '通常表示に戻す',
+    }
+});
 
 // 地点検索コントローラー
 var osmGeocoder = new L.Control.OSMGeocoder({
