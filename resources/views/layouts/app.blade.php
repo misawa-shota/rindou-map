@@ -61,6 +61,6 @@
     <script src="{{ asset('js/Control.FullScreen.js') }}"></script>
 
     <!-- js -->
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>
