@@ -5,7 +5,7 @@ var mymap = new L.map('map', {
         title: 'フルスクリーン表示',
         titleCancel: '通常表示に戻す',
     }
-});
+}).setView([37.508106, 139.930239], 13);
 
 // 地点検索コントローラー
 var osmGeocoder = new L.Control.OSMGeocoder({
@@ -69,9 +69,6 @@ var baseMaps = {
 L.control.layers(baseMaps).addTo(mymap);
 gsi.addTo(mymap);
 
-// 初期表示の中心座標とズームレベル
-mymap.setView([37.508106, 139.930239], 13);
-
 // Locate
 var option = {
     position: 'topright',
@@ -88,3 +85,15 @@ var lc = L.control.locate(option).addTo(mymap);
 
 // 初期状態で現在地を表示
 lc.start();
+
+// 林道のアイコン
+var myIcon = L.icon({
+    iconUrl: '../img/marker-icon.svg',
+    iconSize: [38, 38]
+});
+
+// マップ上に林道のマーカーを表示
+for(var i = 0; i < markers.length; i++) {
+    marker = L.marker([markers[i].lat, markers[i].lng], {icon: myIcon}).addTo(mymap);
+    marker.bindPopup(markers[i].name).openPopup();
+}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Rindou;
 
 class MapController extends Controller
 {
@@ -11,7 +12,11 @@ class MapController extends Controller
      */
     public function index()
     {
-        return view('map.index');
+        $rindouList = Rindou::all();
+
+        $json = json_encode($rindouList);
+
+        return view('map.index', compact('json'));
     }
 
     /**
