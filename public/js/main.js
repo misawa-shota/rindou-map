@@ -88,150 +88,126 @@ var lc = L.control.locate(option).addTo(mymap);
 lc.start();
 
 // 林道のアイコン
-var possibleDriveIcon = L.icon({
-    iconUrl: '../img/possibleDriveIcon.svg',
+var icon = L.icon({
+    iconUrl: '../img/icon.svg',
     iconSize: [38, 38]
 });
 
-var impossibleDriveIcon = L.icon({
-    iconUrl: '../img/impossibleDriveIcon.svg',
-    iconSize: [38, 38]
-});
+// // マップ上の林道をなぞるのに必要な機能
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// // 線・図形描画機能の追加
+// var drawnItems = new L.FeatureGroup();
+// mymap.addLayer(drawnItems);
+// var drawControl = new L.Control.Draw({
+//     edit: {
+//         featureGroup: drawnItems
+//     }
+// });
+// mymap.addControl(drawControl);
 
-var UnknownDriveIcon = L.icon({
-    iconUrl: '../img/UnknownDriveIcon.svg',
-    iconSize: [38, 38]
-});
+// // 図形を新規作成した時
+// mymap.on(L.Draw.Event.CREATED, function (e) {
+//     drawnItems.addLayer(e.layer);
+//     e.layer.feature = e.layer.feature || {};
+//     e.layer.feature.properties = e.layer.feature.properties || {};
+//     e.layer.feature.type = "Feature";
+//     popup = e.layer.bindPopup("");
+//     setFeatureProperties(e.layer);
+// });
 
-// マップ上の林道をなぞるのに必要な機能
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 線・図形描画機能の追加
-var drawnItems = new L.FeatureGroup();
-mymap.addLayer(drawnItems);
-var drawControl = new L.Control.Draw({
-    edit: {
-        featureGroup: drawnItems
-    }
-});
-mymap.addControl(drawControl);
+// // 図形を編集した時
+// mymap.on(L.Draw.Event.EDITED, function (e) {
+//     e.layers.eachLayer(function (layer) {
+//         setFeatureProperties(layer);
+//     });
+// });
 
-// 図形を新規作成した時
-mymap.on(L.Draw.Event.CREATED, function (e) {
-    drawnItems.addLayer(e.layer);
-    e.layer.feature = e.layer.feature || {};
-    e.layer.feature.properties = e.layer.feature.properties || {};
-    e.layer.feature.type = "Feature";
-    popup = e.layer.bindPopup("");
-    setFeatureProperties(e.layer);
-});
+// const setFeatureProperties = function (layer) {
+//     // 線と多角形と四角形
+//     if (layer instanceof L.Polyline) {
+//         var latlngs = layer._defaultShape ? layer._defaultShape() : layer.getLatLngs();
+//         if (latlngs.length >= 2) {
+//         var distance = 0;
+//         layer.feature.properties.latlng = [];
+//         for (var i = 0; i < latlngs.length - 1; i++) {
+//             distance += latlngs[i].distanceTo(latlngs[i + 1]);
+//         }
+//         layer.feature.properties.distance = distance.toFixed(2) + " m"; // ex. distance 3728.81 m
 
-// 図形を編集した時
-mymap.on(L.Draw.Event.EDITED, function (e) {
-    e.layers.eachLayer(function (layer) {
-        setFeatureProperties(layer);
-    });
-});
+//         // 緯度経度を取得
+//         latlngs.forEach((latlng, index) => {
+//             layer.feature.properties.latlng[index] = [latlng.lat, latlng.lng];
+//         });
+//     }
+//     layer.feature.properties.drawtype = L.Draw.Polyline.TYPE;
+//     }
+//     // 多角形と四角形
+//     if (layer instanceof L.Polygon) {
+//         var latlngs = layer._defaultShape ? layer._defaultShape() : layer.getLatLngs();
+//         var area = L.GeometryUtil.geodesicArea(latlngs);
+//         layer.feature.properties.area = L.GeometryUtil.readableArea(area, true); // ex. area 174.19 ha
+//         layer.feature.properties.drawtype = L.Draw.Polygon.TYPE;
+//         delete layer.feature.properties.distance;
+//     }
+//     // 四角形
+//     if (layer instanceof L.Rectangle) {
+//         layer.feature.properties.drawtype = L.Draw.Rectangle.TYPE;
+//         delete layer.feature.properties.distance;
+//     }
+//     // 円
+//     if (layer instanceof L.Circle) {
+//         layer.feature.properties.radius = layer.getRadius().toFixed(2) + " m"; // ex. radius 1097.02 m
+//         layer.feature.properties.latlng = [layer.toGeoJSON().geometry.coordinates[1], layer.toGeoJSON().geometry.coordinates[0]];
+//         layer.feature.properties.drawtype = L.Draw.Circle.TYPE;
+//     }
+//     // マーカー
+//     if (layer instanceof L.Marker) {
+//         layer.feature.properties.latlng = [layer.toGeoJSON().geometry.coordinates[1], layer.toGeoJSON().geometry.coordinates[0]];
+//         layer.feature.properties.drawtype = L.Draw.Marker.TYPE;
+//     }
 
-const setFeatureProperties = function (layer) {
-    // 線と多角形と四角形
-    if (layer instanceof L.Polyline) {
-        var latlngs = layer._defaultShape ? layer._defaultShape() : layer.getLatLngs();
-        if (latlngs.length >= 2) {
-        var distance = 0;
-        layer.feature.properties.latlng = [];
-        for (var i = 0; i < latlngs.length - 1; i++) {
-            distance += latlngs[i].distanceTo(latlngs[i + 1]);
-        }
-        layer.feature.properties.distance = distance.toFixed(2) + " m"; // ex. distance 3728.81 m
+//     // popup 時の表示内容の差し替え
+//     var contents = "";
+//     for (var key in layer.feature.properties) {
+//     if (key != 'note' && key != 'drawtype' && key != 'latlng') {
+//         contents = contents + key + " " + layer.feature.properties[key] + "<br />";
+//     }
+//     if (key == 'latlng') {
+//         contents = contents + key + " " + JSON.stringify(layer.feature.properties[key]) + "<br />";
+//     }
+// }
+// layer.setPopupContent(contents);
+// };
 
-        // 緯度経度を取得
-        latlngs.forEach((latlng, index) => {
-            layer.feature.properties.latlng[index] = [latlng.lat, latlng.lng];
-        });
-    }
-    layer.feature.properties.drawtype = L.Draw.Polyline.TYPE;
-    }
-    // 多角形と四角形
-    if (layer instanceof L.Polygon) {
-        var latlngs = layer._defaultShape ? layer._defaultShape() : layer.getLatLngs();
-        var area = L.GeometryUtil.geodesicArea(latlngs);
-        layer.feature.properties.area = L.GeometryUtil.readableArea(area, true); // ex. area 174.19 ha
-        layer.feature.properties.drawtype = L.Draw.Polygon.TYPE;
-        delete layer.feature.properties.distance;
-    }
-    // 四角形
-    if (layer instanceof L.Rectangle) {
-        layer.feature.properties.drawtype = L.Draw.Rectangle.TYPE;
-        delete layer.feature.properties.distance;
-    }
-    // 円
-    if (layer instanceof L.Circle) {
-        layer.feature.properties.radius = layer.getRadius().toFixed(2) + " m"; // ex. radius 1097.02 m
-        layer.feature.properties.latlng = [layer.toGeoJSON().geometry.coordinates[1], layer.toGeoJSON().geometry.coordinates[0]];
-        layer.feature.properties.drawtype = L.Draw.Circle.TYPE;
-    }
-    // マーカー
-    if (layer instanceof L.Marker) {
-        layer.feature.properties.latlng = [layer.toGeoJSON().geometry.coordinates[1], layer.toGeoJSON().geometry.coordinates[0]];
-        layer.feature.properties.drawtype = L.Draw.Marker.TYPE;
-    }
+// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // popup 時の表示内容の差し替え
-    var contents = "";
-    for (var key in layer.feature.properties) {
-    if (key != 'note' && key != 'drawtype' && key != 'latlng') {
-        contents = contents + key + " " + layer.feature.properties[key] + "<br />";
-    }
-    if (key == 'latlng') {
-        contents = contents + key + " " + JSON.stringify(layer.feature.properties[key]) + "<br />";
-    }
-}
-layer.setPopupContent(contents);
-};
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 // マップ上に林道のマーカーを表示
 for(var i = 0; i < markers.length; i++) {
-    if(markers[i].drive_infomation == "走行可能") {
-        marker = L.marker(
-            [markers[i].lat, markers[i].lng],
-            {icon: possibleDriveIcon}
-        )
-        .addTo(mymap);
-    } else if(markers[i].drive_infomation == "走行不可" || markers[i].drive_infomation == "通行許可が必要") {
-        marker = L.marker(
-            [markers[i].lat, markers[i].lng],
-            {icon: impossibleDriveIcon}
-        )
-        .addTo(mymap);
-    } else if(markers[i].draive_infomation == null) {
 
-        // マーカーをクリックした時にそのマーカーに対応するpolylineをマップ上に描画する関数 /////////////////////////////////////////////////////////////////////
-        function setClickEvent(marker, $points) {
-            marker.on('click', function(){
-                $points = JSON.parse($points);
-                var latlngs = [$points];
-                console.log(latlngs);
-                var polyline = L.polyline(latlngs, {color: 'red'}).bindPopup('六本松林道', {autoClose: false}).openPopup().addTo(mymap);
-                mymap.fitBounds(polyline.getBounds());
-            });
-        };
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // マーカーをクリックした時にそのマーカーに対応するpolylineをマップ上に描画する関数 /////////////////////////////////////////////////////////////////////
+    function setClickEvent(marker, $points, pointName) {
+        marker.on('click', function(){
+            $points = JSON.parse($points);
+            var latlngs = [$points];
+            var polyline = L.polyline(latlngs, {color: 'red'}).bindPopup(pointName, {autoClose: false}).openPopup().addTo(mymap);
+            mymap.fitBounds(polyline.getBounds());
+        });
+    };
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        marker = L.marker(
-            [markers[i].lat, markers[i].lng],
-            {icon: UnknownDriveIcon}
-        )
-        .addTo(mymap);
+    marker = L.marker(
+        [markers[i].lat, markers[i].lng],
+        {icon: icon}
+    )
+    .addTo(mymap).bindPopup(markers[i].name, {autoClose: false});
 
-        $points = (markers[i].polyline_latlngs);
 
-        setClickEvent(marker, $points);
-    }
+    $points = markers[i].polyline_latlngs;
+    var pointName = markers[i].name;
 
-    marker.bindPopup(markers[i].name, {autoClose: false}).openPopup()
+    setClickEvent(marker, $points, pointName);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

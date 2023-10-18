@@ -28,8 +28,8 @@
     <!-- fullscreen.css -->
     <link rel="stylesheet" href="{{ asset('css/Control.FullScreen.css') }}" />
 
-    <!-- leaflet.draw -->
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.9/leaflet.draw-src.css' />
+    {{-- <!-- leaflet.draw -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.9/leaflet.draw-src.css' /> --}}
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -63,8 +63,8 @@
     <!-- fullscreen.js -->
     <script src="{{ asset('js/Control.FullScreen.js') }}"></script>
 
-    <!-- leaflet.draw.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.9/leaflet.draw-src.js"></script>
+    {{-- <!-- leaflet.draw.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.9/leaflet.draw-src.js"></script> --}}
 
     <!-- js -->
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
