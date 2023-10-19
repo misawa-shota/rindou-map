@@ -184,6 +184,7 @@ var icon = L.icon({
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // マップ上に林道のマーカーを表示
+var cluster = L.markerClusterGroup();
 for(var i = 0; i < markers.length; i++) {
 
     // マーカーをクリックした時にそのマーカーに対応するpolylineをマップ上に描画する関数 /////////////////////////////////////////////////////////////////////
@@ -201,7 +202,8 @@ for(var i = 0; i < markers.length; i++) {
         [markers[i].lat, markers[i].lng],
         {icon: icon}
     )
-    .addTo(mymap).bindPopup(markers[i].name, {autoClose: false});
+    .bindPopup(markers[i].name);
+    cluster.addLayer(marker);
 
 
     $points = markers[i].polyline_latlngs;
@@ -209,6 +211,7 @@ for(var i = 0; i < markers.length; i++) {
 
     setClickEvent(marker, $points, pointName);
 }
+mymap.addLayer(cluster);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
