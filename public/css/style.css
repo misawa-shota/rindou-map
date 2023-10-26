@@ -5,9 +5,10 @@
     height: 500px;
 }
 
+/**** GeoCoder Icon ***********************/
 .found-icon {
-	width:4em !important;
-	height: 4em !important;
+	width:2em !important;
+	height: 2em !important;
 	border-radius: 50%;
 	background-color: #FF4730;
     position: relative;
@@ -18,8 +19,8 @@
     position: absolute;
     top: 25%;
     left: 25%;
-    width: 2em;
-    height: 2em;
+    width: 1em;
+    height: 1em;
     border-radius: 50%;
     background-color: #fff;
 }
@@ -29,6 +30,30 @@
     top: 55%;
     left: 12.5%;
     content: '▼';
-    font-size: 3em;
+    font-size: 1.5em;
     color: #FF4730;
+}
+/****************************************/
+
+/****** 林道名検索フォーム */
+
+.rindou_name_search {
+    position: absolute;
+    top: 0.6rem;
+    right: 13rem;
+    z-index: 800;
+}
+
+.rindou_name_search form {
+    padding: 0.3rem;
+    background-color: #f8f9fa;
+    border-radius: 0.4rem;
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
+}
+
+.rindou_name_search form input {
+    border-radius: 0.2rem;
+    border: 0.09rem solid gray;
+    font-size: 0.75rem;
+    line-height: 1.8;
 }

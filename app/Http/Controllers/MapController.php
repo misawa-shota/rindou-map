@@ -13,10 +13,9 @@ class MapController extends Controller
     public function index()
     {
         $rindouList = Rindou::all();
+        $rindouList = json_encode($rindouList);
 
-        $json = json_encode($rindouList);
-
-        return view('map.index', compact('json'));
+        return view('map.index', compact('rindouList'));
     }
 
     /**
