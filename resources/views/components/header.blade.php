@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
+        <img class="header_icon" src="{{ asset('img/icon.svg') }}" alt="林道のアイコン画像">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
         </a>
@@ -16,7 +17,10 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('maps.index') }}">マップ</a>
+                    <a class="nav-link" href="{{ route('maps.index') }}">マップで検索</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('list.index') }}">一覧で検索</a>
                 </li>
                 <!-- Authentication Links -->
                 @guest
