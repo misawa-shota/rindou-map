@@ -87,6 +87,19 @@
         padding-left: 1rem;
     }
 
+    .prefectures_list dl dd ul li form button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        appearance: none;
+    }
+
+    .prefectures_list dl dd ul li form button:hover {
+        opacity: 0.6;
+    }
+
     #hokkaidou {
         border-left: 1rem solid #ea6da4;
     }

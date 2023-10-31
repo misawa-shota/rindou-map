@@ -10,11 +10,19 @@ class ListController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $rindouList = Rindou::all();
+        $prefecture = $request->input('prefecture');
+        $count = 0;
+        if(!empty($prefecture)) {
+            $markers = Rindou::where('prefecture', 'LIKE', "%{$prefecture}%")->groupBy('name')->get(['name']);
+            // $markers = Rindou::all();
+            $count = $markers->count();
+        } else {
+            $markers = Rindou::all();
+        }
 
-        return view('list.index', compact('rindouList'));
+        return view('list.index', compact('prefecture', 'markers', 'count'));
     }
 
     /**
