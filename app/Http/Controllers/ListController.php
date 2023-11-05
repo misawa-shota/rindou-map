@@ -15,9 +15,9 @@ class ListController extends Controller
         $prefecture = $request->input('prefecture');
         $count = 0;
         if(!empty($prefecture)) {
-            $markers = Rindou::where('prefecture', 'LIKE', "%{$prefecture}%")->groupBy('name')->get(['name']);
-            // $markers = Rindou::all();
+            $markers = Rindou::where('prefecture', 'LIKE', "%{$prefecture}%");
             $count = $markers->count();
+            $markers = $markers->paginate(15);
         } else {
             $markers = Rindou::all();
         }

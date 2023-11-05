@@ -30,5 +30,8 @@
         @component('components.footer')
         @endcomponent
     </div>
+
+    <!-- javascript -->
+    <script src="{{ asset('js/listpage.js') }}"></script>
 </body>
 </html>

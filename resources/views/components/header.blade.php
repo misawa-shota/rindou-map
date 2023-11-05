@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
     <div class="container">
         <img class="header_icon" src="{{ asset('img/icon.svg') }}" alt="林道のアイコン画像">
         <a class="navbar-brand" href="{{ url('/') }}">

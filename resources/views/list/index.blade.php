@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.listpage')
 
 @section('content')
-    <div class="container">
-        @if ($prefecture === null)
+    @if ($prefecture === null)
+        {{-- 日本地図と都道府県の一覧ページ --}}
+        <div class="container">
             <h2 class="fs-1 fw-bold my-5">都道府県一覧で検索</h2>
             <div class="row align-items-center">
                 <div class="col">
@@ -402,12 +403,59 @@
                 </div>
                 <img src="{{ asset('img/japan_map.png') }}" alt="日本地図の画像" class="col w-50 h-50">
             </div>
-        @else
-            @foreach ($markers as $marker)
-                <p>{{ $marker->name }}</p>
-            @endforeach
-        @endif
-
-
-    </div>
+        </div>
+    @else
+        {{-- 各県の林道一覧ページ --}}
+        <div class="container">
+            <div class="link_nav my-5">
+                <span><a class="link-underline link-underline-opacity-0 link-dark link-opacity-50-hover" href="{{ route('list.index') }}">都道府県一覧</a></span>
+                <span class="mx-3">></span>
+                <span>{{ $prefecture }}</span>
+            </div>
+            <div class="d-flex align-items-center">
+                <h2 class="fw-bold">{{ $prefecture }}の林道</h2>
+                <span>（{{ $count }}件）</span>
+            </div>
+            <div class="card_container my-5">
+                <ul class="list-unstyled">
+                    @foreach ($markers as $marker)
+                        <li class="d-block mb-5">
+                            <div class="card border border-0">
+                                <div class="row align-items-center">
+                                    <div class="col-md-4">
+                                        <a href="" class="img_link">
+                                            @if ($marker->rindou_img == null)
+                                                <img src="{{ asset('img/no_image.png') }}" alt="No-imageの画像" class="img-thumbnail">
+                                            @else
+                                                <img src="{{ asset('img/'. $marker->rindou_img) }}" alt="林道の画像" class="img-thumbnail">
+                                            @endif
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h3 class="card-title mb-4"><a class="link-underline link-underline-opacity-0 link-dark link-opacity-50-hover" href="">{{ $marker->name }}</a></h3>
+                                            <div>
+                                                <dl>
+                                                    <dt class="mb-2">< 林道の情報 ></dt>
+                                                    <dd class="ps-2">
+                                                        <p class="card-text">{!! Str::limit(nl2br(e($marker->description)), 230, '...') !!}</p>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="d-flex justify-content-center">
+                {{ $markers->appends(request()->input())->links() }}
+            </div>
+        </div>
+        <div class="to_pagetop_btn">
+            <span>↑</span>
+        </div>
+    @endif
 @endsection
