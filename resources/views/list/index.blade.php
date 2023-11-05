@@ -423,7 +423,7 @@
                             <div class="card border border-0">
                                 <div class="row align-items-center">
                                     <div class="col-md-4">
-                                        <a href="" class="img_link">
+                                        <a href="#" class="img_link">
                                             @if ($marker->rindou_img == null)
                                                 <img src="{{ asset('img/no_image.png') }}" alt="No-imageの画像" class="img-thumbnail">
                                             @else
