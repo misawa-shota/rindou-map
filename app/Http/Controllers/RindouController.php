@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rindou;
-use Illuminate\Http\Request;
 
-class ListController extends Controller
+use Illuminate\Http\Request;
+use App\Models\Rindou;
+
+class RindouController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +16,14 @@ class ListController extends Controller
         $prefecture = $request->input('prefecture');
         $count = 0;
         if(!empty($prefecture)) {
-            $markers = Rindou::where('prefecture', 'LIKE', "%{$prefecture}%");
-            $count = $markers->count();
-            $markers = $markers->paginate(15);
+            $rindous = Rindou::where('prefecture', 'LIKE', "%{$prefecture}%");
+            $count = $rindous->count();
+            $rindous = $rindous->paginate(15);
         } else {
-            $markers = Rindou::all();
+            $rindous = Rindou::all();
         }
 
-        return view('list.index', compact('prefecture', 'markers', 'count'));
+        return view('rindous.index', compact('prefecture', 'rindous', 'count'));
     }
 
     /**
@@ -46,7 +47,12 @@ class ListController extends Controller
      */
     public function show(Rindou $rindou)
     {
-        //
+        $prefecture = $_GET['prefecture'];
+
+        $markers = Rindou::all();
+        $markers = json_encode($markers);
+
+        return view('rindous.show', compact('rindou', 'prefecture', 'markers'));
     }
 
     /**
