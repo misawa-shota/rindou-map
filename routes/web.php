@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ToppageController;
 use App\Http\Controllers\MapController;
-use App\Http\Controllers\ListController;
+use App\Http\Controllers\RindouController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -25,6 +25,6 @@ Route::get('/', [ToppageController::class, 'index']);
 Route::resource('maps', MapController::class)->middleware(['auth', 'verified']);
 Auth::routes(['verify' => true]);
 
-Route::resource('list', ListController::class);
+Route::resource('rindous', RindouController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

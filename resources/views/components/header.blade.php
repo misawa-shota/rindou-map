@@ -20,7 +20,7 @@
                     <a class="nav-link" href="{{ route('maps.index') }}">マップで検索</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('list.index') }}">一覧で検索</a>
+                    <a class="nav-link" href="{{ route('rindous.index') }}">一覧で検索</a>
                 </li>
                 <!-- Authentication Links -->
                 @guest
