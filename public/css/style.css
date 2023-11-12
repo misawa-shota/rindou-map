@@ -173,7 +173,11 @@
 
     /**** 林道詳細ページ *************************************/
 
-    .swiper {
+    .text-shadow {
+        text-shadow: 0.1rem 0.1rem 0.3rem #000;
+    }
+
+    .detailpage_img_thumbnail {
         height: 700px;
         overflow: hidden;
     }

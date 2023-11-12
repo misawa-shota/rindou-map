@@ -433,7 +433,14 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h3 class="card-title mb-4"><a class="link-underline link-underline-opacity-0 link-dark link-opacity-50-hover" href="{{ route('rindous.show', $rindou) }}?prefecture={{ $prefecture }}">{{ $rindou->name }}</a></h3>
+                                            <div class="mb-4 d-flex align-items-center">
+                                                <h3 class="card-title"><a class="link-underline link-underline-opacity-0 link-dark link-opacity-50-hover" href="{{ route('rindous.show', $rindou) }}?prefecture={{ $prefecture }}">{{ $rindou->name }}</a></h3>
+                                                @if (strlen($rindou->distance) >= 4)
+                                                    <span class="ms-1 fs-5">（ 約 {{ mb_substr(number_format(round($rindou->distance, -1), 0, '', '.'), 0, 4) }} km ）</span>
+                                                @else
+                                                    <span class="ms-1 fs-5">（ 約 {{ $rindou->distance }} m ）</span>
+                                                @endif
+                                            </div>
                                             <div>
                                                 <dl>
                                                     <dt class="mb-2">< 林道の情報 ></dt>
