@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ToppageController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\RindouController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -26,5 +27,7 @@ Route::resource('maps', MapController::class)->middleware(['auth', 'verified']);
 Auth::routes(['verify' => true]);
 
 Route::resource('rindous', RindouController::class);
+
+Route::get('users/mypage', [UserController::class, 'mypage'])->name('mypage');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
