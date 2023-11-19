@@ -5,6 +5,7 @@ use App\Http\Controllers\ToppageController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\RindouController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -24,6 +25,10 @@ Route::get('/', [ToppageController::class, 'index']);
 // });
 
 Route::resource('maps', MapController::class)->middleware(['auth', 'verified']);
+Auth::routes(['verify' => true]);
+
+Route::post('posts/create', [PostController::class, 'getRindouList']);
+Route::resource('posts', PostController::class)->middleware(['auth', 'verified']);
 Auth::routes(['verify' => true]);
 
 Route::resource('rindous', RindouController::class);
