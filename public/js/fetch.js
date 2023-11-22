@@ -23,16 +23,17 @@ function prefectureSubmit() {
     .then(res => {
         const newSelect = document.createElement('select');
         newSelect.setAttribute('class', 'form-select');
-        newSelect.setAttribute('name', 'rindou_name');
+        newSelect.setAttribute('name', 'rindou_id');
         newSelect.setAttribute('id', 'rindou_select');
         const newOption = document.createElement('option');
         newOption.setAttribute('selected', '');
+        newOption.setAttribute('value', '');
         newOption.textContent = '林道名を選択して下さい';
         newSelect.appendChild(newOption);
 
         res.forEach(elm => {
             var option = document.createElement('option');
-            option.setAttribute('value', elm['name']);
+            option.setAttribute('value', elm['id']);
             option.textContent = elm['name'];
 
             newSelect.insertBefore(option, null);

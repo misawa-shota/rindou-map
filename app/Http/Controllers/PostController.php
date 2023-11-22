@@ -14,7 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.index');
+        $posts = Post::all();
+
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -31,11 +33,12 @@ class PostController extends Controller
     {
         $prefecture = $request->prefecture;
 
-        if ($prefecture == '都道府県を選択して下さい') {
+        if ($prefecture == '') {
             $rindous = Rindou::all();
 
             foreach($rindous as $rindou) {
                 $rindouList[] = array(
+                    'id' => $rindou->id,
                     'name' => $rindou->name
                 );
             }
@@ -46,12 +49,14 @@ class PostController extends Controller
             if (!$rindous->isempty()) {
                 foreach($rindous as $rindou) {
                     $rindouList[] = array(
+                        'id' => $rindou->id,
                         'name' => $rindou->name
                     );
                 }
                 echo json_encode($rindouList);
             } else {
                 $rindouList[] = array(
+                    'id' => '',
                     'name' => ''
                 );
                 echo json_encode($rindouList);
@@ -64,7 +69,42 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'prefecture' => 'required',
+            'rindou_id' => 'required',
+            'rindou_img.*' => 'file|mimes:jpeg,jpg,png',
+            'title' => 'required',
+            'content' => 'required'
+        ], [
+            'prefecture.required' => '都道府県の選択は必須です。',
+            'rindou_id.required' => '林道名の選択は必須です。',
+            'rindou_img.*.file' => 'ファイルを正しくアップロードして下さい。',
+            'rindou_img.*.mimes' => 'アップロードできるファイルは拡張子が「.jpeg」「.jpg」「.png」の3種類のみです。',
+            'title.required' => 'タイトルは必須です。',
+            'content.required' => '投稿内容の項目は必須です。'
+        ]);
+
+        $post = new Post();
+
+        $post->rindou_id = $request->rindou_id;
+        $post->user_id = Auth::user()->id;
+        $post->title = $request->input('title');
+        $post->content = $request->content;
+
+        $files = $request->file('rindou_img');
+        $rindouImgArray = [];
+        foreach ($files as $file) {
+            $fileName = $file->getClientOriginalName();
+            $fileName = date('Ymd_His').'_'.$fileName;
+            $file->move('img', $fileName);
+            $rindouImgArray[] = $fileName;
+        }
+        $rindouImgString = implode(",", $rindouImgArray);
+        $post->img = $rindouImgString;
+
+        $post->save();
+
+        return redirect()->route('posts.index')->with('flash_message', '新しい投稿を追加しました。');
     }
 
     /**
