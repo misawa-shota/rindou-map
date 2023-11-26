@@ -5,7 +5,7 @@
         <h2 class="my-5">投稿一覧ページ</h2>
         <span><a href="{{ route('posts.create') }}">投稿を追加する</a></span>
         @if (session('flash_message'))
-            <p>{{ session('flash_message') }}</p>
+            <p class="my-5 text-primary fs-4">{{ session('flash_message') }}</p>
         @endif
         <div>
             @foreach ($posts as $post)
@@ -18,11 +18,15 @@
                                 $count = count($images);
                             ?>
                             <a href="{{ route('posts.show', $post->id) }}" class="post_img_link">
-                                <img src="{{ asset('img/'. $images[0]) }}" class="img-fluid rounded-start post_img" alt="投稿された画像">
-                                <div class="position-absolute bottom-0 end-0 bg-black opacity-75">
-                                    <img src="{{ asset('img/camera-icon.png') }}" alt="カメラのアイコン画像" class="ms-3 w-25 h-25">
-                                    <span class="ms-3 text-light"><?php echo $count; ?></span>
-                                </div>
+                                @if (!empty($post->img))
+                                    <img src="{{ asset('img/'. $images[0]) }}" class="img-thumbnail border border-0 post_img" alt="投稿された画像">
+                                    <div class="position-absolute bottom-0 end-0 bg-black opacity-75">
+                                        <img src="{{ asset('img/camera-icon.png') }}" alt="カメラのアイコン画像" class="ms-3 w-25 h-25">
+                                        <span class="ms-3 text-light"><?php echo $count; ?></span>
+                                    </div>
+                                @else
+                                    <img src="{{ asset('img/no_image.png') }}" alt="No-imageの画像" class="img-thumbnail border border-0 post_img">
+                                @endif
                             </a>
                         </div>
                         <div class="col-md-8">

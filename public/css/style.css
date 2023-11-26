@@ -231,3 +231,7 @@ body {
     #zoom_up_img {
         width: 80%;
     }
+
+    .link_btn:hover {
+        opacity: 0.7;
+    }

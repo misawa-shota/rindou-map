@@ -28,13 +28,13 @@
         </div>
     </div>
     <div class="container my-5">
-        <div class="mb-5">
-            <h3 class="mb-3">< {{ $rindou->name }}の地図 ></h3>
+        <div class="my-5">
+            <h3 class="my-5 fs-3 fw-bold">< {{ $rindou->name }}の地図 ></h3>
             <div id="map"></div>
         </div>
-        <div class="mb-5">
-            <h3 class="mb-3">< {{ $rindou->name }}の情報 ></h3>
-            <p class="lh-lg">{!! nl2br(e($rindou->description)) !!}</p>
+        <div class="my-5">
+            <h3 class="my-5 fs-3 fw-bold">< {{ $rindou->name }}の情報 ></h3>
+            <p class="fs-5 lh-lg">{!! nl2br(e($rindou->description)) !!}</p>
         </div>
     </div>
     <?php $rindou = json_encode($rindou); ?>

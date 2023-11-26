@@ -31,6 +31,9 @@
         </div>
     </div>
     <div class="container my-5">
+        @if (session('flash_message'))
+            <p class="my-5 text-primary fs-4">{{ session('flash_message') }}</p>
+        @endif
         <h3 class="my-5 fs-3 fw-bold">投稿詳細</h3>
         <p class="fs-5 lh-lg">{!! nl2br(e($post->content)) !!}</p>
         <div class="row row-cols-3 g-2 my-5">
@@ -46,6 +49,9 @@
                 </div>
             @endif
         </div>
+    </div>
+    <div class="my-5 d-flex align-items-center justify-content-center">
+        <a href="{{ route('posts.edit', $post->id) }}" class="text-light text-center fs-4 w-25 py-2 bg-primary link-underline link-underline-opacity-0 rounded-pill link_btn">内容を編集する</a>
     </div>
     {{-- 画像拡大表示部分 ------------------------------}}
     <div id="zoom_up_wrapper">
