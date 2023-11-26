@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->paginate(15);
 
         return view('posts.index', compact('posts'));
     }
@@ -112,7 +112,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('posts.show', compact('post'));
     }
 
     /**
