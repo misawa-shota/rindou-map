@@ -17,6 +17,10 @@
                     <span class="me-3 text-shadow fs-3"><?php echo $names[0]->name; ?></span>
                     <span class="text-shadow fs-3">{{ $post->created_at->format('Y/m/d') }}</span>
                 </div>
+                <div class="d-flex align-items-center my-3">
+                    <span class="me-3"><img  class="icon_img" src="{{ asset('storage/icon_img/'. Auth::user()->icon_img) }}" alt="ユーザーのアイコン画像"></span>
+                    <span class="text-shadow fs-3">{{ Auth::user()->name }}</span>
+                </div>
             </div>
         </div>
         <div class="detailpage_img_thumbnail">
