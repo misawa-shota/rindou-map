@@ -6,7 +6,7 @@ use App\Models\Post;
 use App\Models\Rindou;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -93,15 +93,20 @@ class PostController extends Controller
         $post->content = $request->content;
 
         $files = $request->file('rindou_img');
-        $rindouImgArray = [];
-        foreach ($files as $file) {
-            $fileName = $file->getClientOriginalName();
-            $fileName = date('Ymd_His').'_'.$fileName;
-            $file->move('img', $fileName);
-            $rindouImgArray[] = $fileName;
+        $dir = 'post_img';
+        if(!empty($files)) {
+            $rindouImgArray = [];
+            foreach ($files as $file) {
+                $fileName = $file->getClientOriginalName();
+                $fileName = date('Ymd_His').'_'.$fileName;
+                $file->storeAs('public/'. $dir, $fileName);
+                $rindouImgArray[] = $fileName;
+            }
+            $rindouImgString = implode(",", $rindouImgArray);
+            $post->img = $rindouImgString;
+        } else {
+            $post->img = '';
         }
-        $rindouImgString = implode(",", $rindouImgArray);
-        $post->img = $rindouImgString;
 
         $post->save();
 
@@ -122,10 +127,6 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $rindous = Rindou::all();
-
-        // $prefectures = DB::table('rindous')->select('prefecture')->where('id', $post->rindou_id)->get();
-        // $prefectureRindouList = DB::table('rindous')->select('*')->where('prefecture', 'LIKE', "%{$prefectures[0]->prefecture}%")->get();
-        // dd($prefectureRindouList);
 
         return view('posts.edit', compact('post', 'rindous'));
     }
@@ -155,13 +156,22 @@ class PostController extends Controller
         $post->title = $request->input('title');
         $post->content = $request->content;
 
+        $dir = 'post_img';
+        $oldImgValue = $post->getOriginal('img');
+        if (!empty($oldImgValue)) {
+            $oldImgArray = explode(",", $oldImgValue);
+            foreach($oldImgArray as $oldImg) {
+                Storage::disk('public')->delete($dir. '/'. $oldImg);
+            }
+        }
+
         $files = $request->file('rindou_img');
         if(!empty($files)) {
             $rindouImgArray = [];
             foreach ($files as $file) {
                 $fileName = $file->getClientOriginalName();
                 $fileName = date('Ymd_His').'_'.$fileName;
-                $file->move('img', $fileName);
+                $file->storeAs('public/'. $dir, $fileName);
                 $rindouImgArray[] = $fileName;
             }
             $rindouImgString = implode(",", $rindouImgArray);
@@ -180,6 +190,16 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        if (!empty($post->img)) {
+            $images = explode(",", $post->img);
+
+            foreach ($images as $image) {
+                Storage::disk('public')->delete('post_img/'. $image);
+            }
+        }
+
+        $post->delete();
+
+        return redirect()->route('posts.index')->with('flash_message', '投稿を削除しました。');
     }
 }

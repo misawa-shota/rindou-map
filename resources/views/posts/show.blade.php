@@ -24,7 +24,7 @@
                 <?php
                     $images = explode(",", $post->img);
                 ?>
-                <img src="{{ asset('img/'. $images[0]) }}" alt="<?php echo $names[0]->name; ?>の写真" class="img-fluid overflow-hidden">
+                <img src="{{ asset('storage/post_img/'. $images[0]) }}" alt="<?php echo $names[0]->name; ?>の写真" class="img-fluid overflow-hidden">
             @else
                 <img src="{{ asset('img/no_image.png') }}" alt="No_imageの画像" class="d-block mx-auto">
             @endif
@@ -40,7 +40,7 @@
             @if (!empty($post->img))
                 @foreach ($images as $image)
                     <div class="col">
-                        <img src="{{ asset('img/'. $image) }}" data-src="{{ asset('img/'. $image) }}" alt="投稿された画像" class="img-thumbnail border border-0 detail_page_post_img zoom_up">
+                        <img src="{{ asset('storage/post_img/'. $image) }}" alt="投稿された画像" class="img-thumbnail border border-0 detail_page_post_img zoom_up">
                     </div>
                 @endforeach
             @else
@@ -49,9 +49,14 @@
                 </div>
             @endif
         </div>
-    </div>
-    <div class="my-5 d-flex align-items-center justify-content-center">
-        <a href="{{ route('posts.edit', $post->id) }}" class="text-light text-center fs-4 w-25 py-2 bg-primary link-underline link-underline-opacity-0 rounded-pill link_btn">内容を編集する</a>
+        <div class="my-5 d-flex align-items-center justify-content-around">
+            <a href="{{ route('posts.edit', $post->id) }}" class="text-light text-center fs-4 px-5 py-2 bg-primary link-underline link-underline-opacity-0 rounded-pill link_btn">投稿を編集する</a>
+            <form action="{{ route('posts.destroy', $post->id) }}" method="post" class="w-25">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-danger text-center fs-4 px-5 py-2 rounded-pill">投稿を削除する</button>
+            </form>
+        </div>
     </div>
     {{-- 画像拡大表示部分 ------------------------------}}
     <div id="zoom_up_wrapper">
