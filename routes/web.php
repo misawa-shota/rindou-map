@@ -24,15 +24,16 @@ Route::get('/', [ToppageController::class, 'index']);
 //     return view('welcome');
 // });
 
-Route::resource('maps', MapController::class)->middleware(['auth', 'verified']);
-Auth::routes(['verify' => true]);
+Route::resource('maps', MapController::class);
 
-Route::post('posts/create', [PostController::class, 'getRindouList']);
-Route::resource('posts', PostController::class)->middleware(['auth', 'verified']);
+Route::group(['middleware' => 'auth'], function() {
+    Route::post('posts/create', [PostController::class, 'getRindouList']);
+    Route::resource('posts', PostController::class);
+    Route::get('users/mypage', [UserController::class, 'mypage'])->name('mypage');
+    Route::get('users/mypage/edit', [UserController::class, 'edit'])->name('mypage.edit');
+});
 Auth::routes(['verify' => true]);
 
 Route::resource('rindous', RindouController::class);
-
-Route::get('users/mypage', [UserController::class, 'mypage'])->name('mypage');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

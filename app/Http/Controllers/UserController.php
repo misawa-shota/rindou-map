@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,9 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        return view('user.mypage', compact('user'));
+        $posts = Post::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->limit(3)->get();
+
+        return view('user.mypage', compact('user', 'posts'));
     }
 
     /**
@@ -47,7 +50,7 @@ class UserController extends Controller
      */
     public function edit(user $user)
     {
-        //
+        return view('user.edit', compact('user'));
     }
 
     /**
