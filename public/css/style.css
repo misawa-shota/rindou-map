@@ -247,7 +247,6 @@ body {
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
-        object-fit: cover;
     }
 
     /******************************************************/
@@ -260,10 +259,13 @@ body {
     /**** users > mypage.blade.php *****************************/
 
     .mypage_icon {
-        width: 20rem;
-        height: 20rem;
+        width: 15rem;
+        height: 15rem;
         border-radius: 50%;
-        object-fit: cover;
         border: 0.5rem solid #fff;
         bottom: 0;
+    }
+
+    .user_icon_position {
+        bottom: -18%;
     }
