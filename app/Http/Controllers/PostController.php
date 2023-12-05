@@ -16,8 +16,12 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->paginate(15);
+        $count = 0;
+        if (!$posts->isempty()) {
+            $count = Post::where('user_id', Auth::user()->id)->count();
+        }
 
-        return view('posts.index', compact('posts'));
+        return view('posts.index', compact('posts', 'count'));
     }
 
     /**

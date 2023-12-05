@@ -12,18 +12,27 @@
     <div class="bg-body-secondary py-5">
         <div class="container py-5">
             <div class="d-flex justify-content-between my-5">
-                <h2 class="">{{ Auth::user()->name }}</h2>
-                <a href="{{ route('mypage.edit', Auth::user()->id) }}" class="link-underline link-underline-opacity-0 link-opacity-50-hover link-primary bg-light border border-primary rounded-pill px-3 py-1 fs-5">プロフィール編集</a>
+                <div class="d-flex">
+                    <h2 class="me-3">{{ Auth::user()->name }}</h2>
+                    @if (session('flash_message'))
+                        <span class="ms-3 text-primary fs-4">{{ session('flash_message') }}</span>
+                    @endif
+                </div>
+                <a href="{{ route('mypage.edit') }}" class="link-underline link-underline-opacity-0 link-opacity-50-hover link-primary bg-light border border-primary rounded-pill px-3 py-1 fs-5">プロフィール編集</a>
             </div>
-            <p class="my-5">
-                林道マップの管理人です。<br>
-                林道へ行ってみたいけど場所が分からないという人に向けて簡単に林道の場所を調べることができるようになればと思い本サイトを作成しました。
-            </p>
+            @if (empty(Auth::user()->introduction))
+                <p class="my-5">プロフィールを編集して自己紹介文を記入して下さい。</p>
+            @else
+                <p class="my-5">{!! nl2br(e(Auth::user()->introduction)) !!}</p>
+            @endif
         </div>
     </div>
     <div class="container">
         <div class="row my-5 py-5">
-            <h3 class="fs-2 fw-bold">活動記録</h3>
+            <div class="d-flex align-items-center">
+                <h3 class="fs-2 fw-bold">活動記録</h3>
+                <span class="ms-5 fs-3 fw-bold pb-2">{{ $count }}件</span>
+            </div>
             <div class="d-flex justify-content-end">
                 <a href="{{ route('posts.index') }}" class="link-underline link-underline-opacity-0 fs-5">もっと見る</a>
             </div>

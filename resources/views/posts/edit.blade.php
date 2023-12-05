@@ -1,8 +1,11 @@
 @extends('layouts.postCreate')
 
 @section('content')
-    <div class="container">
-        <h2 class="my-5">投稿編集ページ</h2>
+    <div class="container my-5 py-5">
+        <div class="d-flex align-items-center">
+            <h2 class="me-5">投稿編集ページ</h2>
+            <a href="{{ route('posts.show', $post->id) }}" class="link-underline link-underline-opacity-0 link-opacity-75-hover link-dark fs-5">投稿詳細ページへ戻る</a>
+        </div>
         <div>
             <form action="{{ route('posts.update', $post->id) }}" method="post" enctype="multipart/form-data">
                 @method('patch')

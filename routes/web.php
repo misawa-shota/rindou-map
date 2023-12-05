@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('posts', PostController::class);
     Route::get('users/mypage', [UserController::class, 'mypage'])->name('mypage');
     Route::get('users/mypage/edit', [UserController::class, 'edit'])->name('mypage.edit');
+    Route::put('users/mypage/update', [UserController::class, 'update'])->name('mypage.update');
 });
 Auth::routes(['verify' => true]);
 
