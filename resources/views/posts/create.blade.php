@@ -1,8 +1,11 @@
 @extends('layouts.postCreate')
 
 @section('content')
-    <div class="container">
-        <h2 class="my-5">投稿作成ページ</h2>
+    <div class="container my-5 py-5">
+        <div class="d-flex align-items-center">
+            <h2 class="me-5">投稿作成ページ</h2>
+            <a href="{{ route('posts.index') }}" class="link-underline link-underline-opacity-0 link-opacity-75-hover link-dark fs-5">投稿一覧ページへ戻る</a>
+        </div>
         <p class="my-5">
             林道を選択してご自身の体験を投稿することができます。<br>
             情報のご提供お待ちしております。
