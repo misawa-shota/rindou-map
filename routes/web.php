@@ -26,6 +26,7 @@ Route::get('/', [ToppageController::class, 'index']);
 
 Route::resource('maps', MapController::class);
 
+Route::get('posts/detailpage/{post}', [PostController::class, 'detailpage'])->name('posts.detailpage');
 Route::group(['middleware' => 'auth'], function() {
     Route::post('posts/create', [PostController::class, 'getRindouList']);
     Route::resource('posts', PostController::class);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Rindou;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -115,6 +116,14 @@ class PostController extends Controller
         $post->save();
 
         return redirect()->route('posts.index')->with('flash_message', '新しい投稿を追加しました。');
+    }
+
+    public function detailpage(Post $post)
+    {
+        $rindou = Rindou::where('id', $post->rindou_id)->get();
+        $user = User::where('id', $post->user_id)->get();
+
+        return view('posts.detailpage', compact('post', 'rindou', 'user'));
     }
 
     /**
