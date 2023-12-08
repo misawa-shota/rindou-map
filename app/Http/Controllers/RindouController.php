@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rindou;
+use App\Models\Post;
 
 class RindouController extends Controller
 {
@@ -51,8 +52,9 @@ class RindouController extends Controller
 
         $markers = Rindou::all();
         $markers = json_encode($markers);
+        $posts = Post::where('rindou_id', $rindou->id)->get();
 
-        return view('rindous.show', compact('rindou', 'prefecture', 'markers'));
+        return view('rindous.show', compact('rindou', 'prefecture', 'markers', 'posts'));
     }
 
     /**
