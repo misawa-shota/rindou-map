@@ -4,7 +4,7 @@
     <div class="position-relative">
         <div class="container position-absolute z-3 d-block m-auto bottom-0 start-0 end-0 text-light">
             <div class="link_nav my-3">
-                <span><a href="{{ route('rindous.show', $rindou[0]['id']) }}?prefecture={{ $rindou[0]['prefecture'] }}" class="text-shadow link-underline link-underline-opacity-0 link-light link-opacity-50-hover fs-5">{{ $rindou[0]['name'] }}の詳細ページ</a></span>
+                <span><a href="{{ route('rindous.postList', $rindou[0]['id']) }}?prefecture={{ $prefecture }}" class="text-shadow link-underline link-underline-opacity-0 link-light link-opacity-50-hover fs-5">{{ $rindou[0]['name'] }}の投稿一覧ページ</a></span>
                 <span class="text-shadow mx-3 fs-5">></span>
                 <span class="text-shadow fs-5">投稿詳細ページ</span>
             </div>

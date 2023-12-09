@@ -48,9 +48,9 @@
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center my-5">
                         <h3 class="fs-3 fw-bold">< {{ $rindou->name }}に関する投稿 ></h3>
-                        <span class="fs-4 ms-5">{{ $count }}件</span>
+                        <span class="fs-4 fw-bold ms-5 pb-2">{{ $count }}件</span>
                     </div>
-                    <a href="" class="link-underline link-underline-opacity-0 link-opacity-75-hover fs-4">もっと見る</a>
+                    <a href="{{ route('rindous.postList', $rindou->id) }}?prefecture={{ $prefecture }}" class="link-underline link-underline-opacity-0 link-opacity-75-hover fs-4">もっと見る</a>
                 </div>
                 <div>
                     @foreach ($posts as $post)
@@ -62,7 +62,7 @@
                                         $images = explode(",", $postImg);
                                         $count = count($images);
                                     ?>
-                                    <a href="{{ route('posts.detailpage', $post->id) }}" class="post_img_link">
+                                    <a href="{{ route('posts.detailpage', $post->id) }}?prefecture={{ $prefecture }}" class="post_img_link">
                                         @if (!empty($post->img))
                                             <img src="{{ asset('storage/post_img/'. $images[0]) }}" class="img-fluid border border-0 post_img" alt="投稿された画像">
                                             <div class="position-absolute bottom-0 end-0 bg-black opacity-75">
