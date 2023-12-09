@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'], function() {
 });
 Auth::routes(['verify' => true]);
 
+Route::get('rindous/postList/{rindou}', [RindouController::class, 'postList'])->name('rindous.postList');
 Route::resource('rindous', RindouController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

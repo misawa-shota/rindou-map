@@ -414,7 +414,7 @@
             </div>
             <div class="d-flex align-items-center">
                 <h2 class="fw-bold">{{ $prefecture }}の林道</h2>
-                <span>（{{ $count }}件）</span>
+                <span class="ms-5 fw-bold fs-3 pb-2">{{ $count }}件</span>
             </div>
             <div class="card_container my-5">
                 <ul class="list-unstyled">

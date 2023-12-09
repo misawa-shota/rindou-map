@@ -27,6 +27,15 @@ class RindouController extends Controller
         return view('rindous.index', compact('prefecture', 'rindous', 'count'));
     }
 
+    public function postList(Rindou $rindou)
+    {
+        $prefecture = $_GET['prefecture'];
+        $posts = Post::where('rindou_id', $rindou->id)->orderBy('created_at', 'DESC')->paginate(15);
+        $count = Post::where('rindou_id', $rindou->id)->count();
+
+        return view('rindous.postList', compact('rindou', 'posts', 'count', 'prefecture'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -55,7 +64,7 @@ class RindouController extends Controller
 
         $count = 0;
         if (Post::where('rindou_id', $rindou->id)->exists()) {
-            $posts = Post::where('rindou_id', $rindou->id)->limit(3)->get();
+            $posts = Post::where('rindou_id', $rindou->id)->orderBy('created_at', 'DESC')->limit(3)->get();
             $count = Post::where('rindou_id', $rindou->id)->count();
         } else {
             $posts = '';

@@ -120,10 +120,11 @@ class PostController extends Controller
 
     public function detailpage(Post $post)
     {
+        $prefecture = $_GET['prefecture'];
         $rindou = Rindou::where('id', $post->rindou_id)->get();
         $user = User::where('id', $post->user_id)->get();
 
-        return view('posts.detailpage', compact('post', 'rindou', 'user'));
+        return view('posts.detailpage', compact('post', 'rindou', 'user', 'prefecture'));
     }
 
     /**
