@@ -34,49 +34,73 @@
         </div>
         <div class="my-5">
             <h3 class="my-5 fs-3 fw-bold">< {{ $rindou->name }}の情報 ></h3>
-            <p class="fs-5 lh-lg">{!! nl2br(e($rindou->description)) !!}</p>
+            @if (!empty($rindou->description))
+                <p class="fs-5 lh-lg">{!! nl2br(e($rindou->description)) !!}</p>
+            @else
+                <p class="fs-5 lh-lg">
+                    まだ{{ $rindou->name }}に関する情報はありません。<br>
+                    情報が更新されるまでお待ち下さい。
+                </p>
+            @endif
         </div>
         <div class="my-5">
-            <h3 class="my-5 fs-3 fw-bold">< {{ $rindou->name }}に関する投稿 ></h3>
-            <div>
-                @foreach ($posts as $post)
-                    <div class="card my-5">
-                        <div class="row g-0">
-                            <div class="col-md-4 position-relative">
-                                <?php
-                                    $postImg = $post->img;
-                                    $images = explode(",", $postImg);
-                                    $count = count($images);
-                                ?>
-                                <a href="{{ route('posts.detailpage', $post->id) }}" class="post_img_link">
-                                    @if (!empty($post->img))
-                                        <img src="{{ asset('storage/post_img/'. $images[0]) }}" class="img-fluid border border-0 post_img" alt="投稿された画像">
-                                        <div class="position-absolute bottom-0 end-0 bg-black opacity-75">
-                                            <img src="{{ asset('img/camera-icon.png') }}" alt="カメラのアイコン画像" class="ms-3 w-25 h-25">
-                                            <span class="ms-3 text-light"><?php echo $count; ?></span>
-                                        </div>
-                                    @else
-                                        <img src="{{ asset('img/no_image.png') }}" alt="No-imageの画像" class="img-thumbnail border border-0 post_img">
-                                    @endif
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h3 class="card-title">{{ $post->title }}</h3>
+            @if (!empty($posts))
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center my-5">
+                        <h3 class="fs-3 fw-bold">< {{ $rindou->name }}に関する投稿 ></h3>
+                        <span class="fs-4 ms-5">{{ $count }}件</span>
+                    </div>
+                    <a href="" class="link-underline link-underline-opacity-0 link-opacity-75-hover fs-4">もっと見る</a>
+                </div>
+                <div>
+                    @foreach ($posts as $post)
+                        <div class="card my-5">
+                            <div class="row g-0">
+                                <div class="col-md-4 position-relative">
                                     <?php
-                                        $names = DB::table('rindous')->select('name')->where('id', $post->rindou_id)->get();
+                                        $postImg = $post->img;
+                                        $images = explode(",", $postImg);
+                                        $count = count($images);
                                     ?>
-                                    <div class="d-flex align-items-center my-3">
-                                        <span class="me-3 text-secondary"><?php echo $names[0]->name ?></span>
-                                        <span class="text-secondary">{{ $post->created_at->format('Y/m/d') }}</span>
+                                    <a href="{{ route('posts.detailpage', $post->id) }}" class="post_img_link">
+                                        @if (!empty($post->img))
+                                            <img src="{{ asset('storage/post_img/'. $images[0]) }}" class="img-fluid border border-0 post_img" alt="投稿された画像">
+                                            <div class="position-absolute bottom-0 end-0 bg-black opacity-75">
+                                                <img src="{{ asset('img/camera-icon.png') }}" alt="カメラのアイコン画像" class="ms-3 w-25 h-25">
+                                                <span class="ms-3 text-light"><?php echo $count; ?></span>
+                                            </div>
+                                        @else
+                                            <img src="{{ asset('img/no_image.png') }}" alt="No-imageの画像" class="img-thumbnail border border-0 post_img">
+                                        @endif
+                                    </a>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h3 class="card-title">{{ $post->title }}</h3>
+                                        <?php
+                                            $names = DB::table('rindous')->select('name')->where('id', $post->rindou_id)->get();
+                                        ?>
+                                        <div class="d-flex align-items-center my-3">
+                                            <span class="me-3 text-secondary"><?php echo $names[0]->name ?></span>
+                                            <span class="text-secondary">{{ $post->created_at->format('Y/m/d') }}</span>
+                                        </div>
+                                        <p>{!! Str::limit(nl2br(e($post->content)), 200, '...') !!}</p>
                                     </div>
-                                    <p>{!! Str::limit(nl2br(e($post->content)), 200, '...') !!}</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
+            @else
+                <div class="d-flex align-items-center my-5">
+                    <h3 class="fs-3 fw-bold">< {{ $rindou->name }}に関する投稿 ></h3>
+                    <span class="fs-4 ms-5">{{ $count }}件</span>
+                </div>
+                <p class="fs-5 lh-lg">
+                    まだ{{ $rindou->name }}に関する投稿はありません。<br>
+                    皆様からの投稿をお待ちしております。
+                </p>
+            @endif
         </div>
     </div>
     <?php $rindou = json_encode($rindou); ?>

@@ -52,9 +52,16 @@ class RindouController extends Controller
 
         $markers = Rindou::all();
         $markers = json_encode($markers);
-        $posts = Post::where('rindou_id', $rindou->id)->get();
 
-        return view('rindous.show', compact('rindou', 'prefecture', 'markers', 'posts'));
+        $count = 0;
+        if (Post::where('rindou_id', $rindou->id)->exists()) {
+            $posts = Post::where('rindou_id', $rindou->id)->limit(3)->get();
+            $count = Post::where('rindou_id', $rindou->id)->count();
+        } else {
+            $posts = '';
+        }
+
+        return view('rindous.show', compact('rindou', 'prefecture', 'markers', 'posts', 'count'));
     }
 
     /**
