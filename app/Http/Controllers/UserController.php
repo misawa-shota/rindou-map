@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Clear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -19,12 +20,19 @@ class UserController extends Controller
         $user = Auth::user();
 
         $posts = Post::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->limit(3)->get();
+        $clears = Clear::where('user_id', Auth::user()->id)->limit(12)->get();
+
+        $clearCount = 0;
+        if(!$clears->isempty()) {
+            $clearCount = Clear::where('user_id', Auth::user()->id)->count();
+        }
+
         $count = 0;
-        if (!$posts->isempty()) {
+        if(!$posts->isempty()) {
             $count = Post::where('user_id', Auth::user()->id)->count();
         }
 
-        return view('user.mypage', compact('user', 'posts', 'count'));
+        return view('user.mypage', compact('user', 'posts', 'count', 'clears', 'clearCount'));
     }
 
     /**

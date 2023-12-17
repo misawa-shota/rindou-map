@@ -3,8 +3,8 @@
 @section('content')
     <div class="container my-5 py-5">
         <div class="d-flex align-items-center">
-            <h2>投稿一覧ページ</h2>
-            <span class="ms-5 fs-3 pb-2">{{ $count }}件</span>
+            <h2 class="fw-bold">投稿一覧ページ</h2>
+            <span class="ms-5 fw-bold fs-3 pb-2">{{ $count }}件</span>
         </div>
         <div class="d-flex align-items-center justify-content-end">
             <a href="{{ route('posts.create') }}" class="link-underline link-underline-opacity-0 bg-primary py-2 px-5 rounded-pill text-light fs-6 text-center link_btn">投稿を追加する</a>

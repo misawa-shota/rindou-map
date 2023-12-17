@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rindou extends Model
+class Clear extends Model
 {
     use HasFactory;
 
-    public function posts()
+    public function user()
     {
-        return $this->hasMany(Post::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function clears()
+    public function rindou()
     {
-        return $this->hasMany(Clear::class);
+        return $this->belongsTo(Rindou::class);
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rindou;
+use App\Models\Clear;
+use Illuminate\Support\Facades\Auth;
 
 class MapController extends Controller
 {
@@ -14,6 +16,13 @@ class MapController extends Controller
     {
         $rindouList = Rindou::all();
         $rindouList = json_encode($rindouList);
+
+        if(Auth::check()) {
+            $clearList = Clear::where('user_id', Auth::user()->id)->get();
+            $clearList = json_encode($clearList);
+
+            return view('map.getClear', compact('rindouList', 'clearList'));
+        }
 
         return view('map.index', compact('rindouList'));
     }

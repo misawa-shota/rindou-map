@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container my-5 py-5">
-        <div class="d-flex align-items-center">
-            <h2 class="me-5">投稿編集ページ</h2>
+        <div class="d-flex align-items-center justify-content-between">
+            <h2 class="fw-bold">投稿編集ページ</h2>
             <a href="{{ route('posts.show', $post->id) }}" class="link-underline link-underline-opacity-0 link-opacity-75-hover link-dark fs-5">投稿詳細ページへ戻る</a>
         </div>
         <div>
