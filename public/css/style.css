@@ -269,3 +269,18 @@ body {
     .user_icon_position {
         bottom: -18%;
     }
+
+    .stamp_rally {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+    }
+
+    .clear_stamp {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .clear_rindou_img {
+        cursor: pointer;
+    }

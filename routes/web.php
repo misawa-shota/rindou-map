@@ -6,6 +6,7 @@ use App\Http\Controllers\MapController;
 use App\Http\Controllers\RindouController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ClearController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -33,6 +34,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('users/mypage', [UserController::class, 'mypage'])->name('mypage');
     Route::get('users/mypage/edit', [UserController::class, 'edit'])->name('mypage.edit');
     Route::put('users/mypage/update', [UserController::class, 'update'])->name('mypage.update');
+    Route::get('clear', [ClearController::class, 'index'])->name('clear.index');
+    Route::post('clear/create', [ClearController::class, 'getRindouList']);
+    Route::get('clear/create', [ClearController::class, 'create'])->name('clear.create');
+    Route::post('clear/store', [ClearController::class, 'store'])->name('clear.store');
+    Route::delete('clear/destroy/{clear}', [ClearController::class, 'destroy'])->name('clear.destroy');
 });
 Auth::routes(['verify' => true]);
 
