@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
     <div class="container">
         <img class="header_icon" src="{{ asset('img/icon.svg') }}" alt="林道のアイコン画像">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand fw-bold fs-3" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
