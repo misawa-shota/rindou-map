@@ -284,3 +284,26 @@ body {
     .clear_rindou_img {
         cursor: pointer;
     }
+
+    /*********************************************************/
+/*********************************************************************************************/
+
+
+/***********************************************************************************************/
+    /**** toppage > index.blade.php ********************************************/
+
+    @keyframes zoomUp {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.15);
+        }
+    }
+
+    .swiper-slide-active .slide_img,
+    .swiper-slide-duplicate-active .slide_img,
+    .swiper-slide-prev .slide_img {
+        animation: zoomUp 7s linear 0s normal both;
+    }
