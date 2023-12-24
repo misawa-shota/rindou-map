@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Rindou;
 use App\Models\Post;
+use App\Models\Clear;
+use Illuminate\Support\Facades\Auth;
 
 class RindouController extends Controller
 {
@@ -68,6 +70,13 @@ class RindouController extends Controller
             $count = Post::where('rindou_id', $rindou->id)->count();
         } else {
             $posts = '';
+        }
+
+        if(Auth::check()) {
+            $clearList = Clear::where('user_id', Auth::user()->id)->get();
+            $clearList = json_encode($clearList);
+
+            return view('rindous.getClear', compact('rindou', 'prefecture', 'markers', 'posts', 'count', 'clearList'));
         }
 
         return view('rindous.show', compact('rindou', 'prefecture', 'markers', 'posts', 'count'));

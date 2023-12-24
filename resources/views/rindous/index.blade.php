@@ -401,7 +401,7 @@
                         </dl>
                     </div>
                 </div>
-                <img src="{{ asset('img/japan_map.png') }}" alt="日本地図の画像" class="col w-50 h-50">
+                <img src="{{ asset('storage/img/japan_map.png') }}" alt="日本地図の画像" class="col w-50 h-50">
             </div>
         </div>
     @else
@@ -431,9 +431,9 @@
                                         <div class="col-md-4">
                                             <a href="{{ route('rindous.show', $rindou) }}?prefecture={{ $prefecture }}" class="img_link">
                                                 @if ($rindou->rindou_img == null)
-                                                    <img src="{{ asset('img/no_image.png') }}" alt="No-imageの画像" class="img-thumbnail">
+                                                    <img src="{{ asset('storage/img/no_image.png') }}" alt="No-imageの画像" class="img-thumbnail">
                                                 @else
-                                                    <img src="{{ asset('img/'. $rindou->rindou_img) }}" alt="林道の画像" class="img-thumbnail">
+                                                    <img src="{{ asset('storage/img/'. $rindou->rindou_img) }}" alt="林道の画像" class="img-thumbnail">
                                                 @endif
                                             </a>
                                         </div>

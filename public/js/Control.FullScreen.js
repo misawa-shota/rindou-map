@@ -9,9 +9,9 @@
 (function (root, factory) {
 	if (typeof define === 'function' && define.amd) {
 		define('screenfull', factory);
-  } else if (typeof module === 'object' && module.exports) {
+    } else if (typeof module === 'object' && module.exports) {
 		module.exports.screenfull = factory();
-  } else {
+    } else {
 		// Save 'screenfull' into global window variable
 		root.screenfull = factory();
 	}

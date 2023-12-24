@@ -30,7 +30,7 @@
                 ?>
                 <img src="{{ asset('storage/post_img/'. $images[0]) }}" alt="<?php echo $names[0]->name; ?>の写真" class="img-fluid overflow-hidden">
             @else
-                <img src="{{ asset('img/no_image.png') }}" alt="No_imageの画像" class="d-block mx-auto">
+                <img src="{{ asset('storage/img/no_image.png') }}" alt="No_imageの画像" class="d-block mx-auto">
             @endif
         </div>
     </div>
@@ -49,7 +49,7 @@
                 @endforeach
             @else
                 <div class="col-3">
-                    <img src="{{ asset('img/no_image.png') }}" alt="No_imageの画像" class="img-thumbnail border border-0">
+                    <img src="{{ asset('storage/img/no_image.png') }}" alt="No_imageの画像" class="img-thumbnail border border-0">
                 </div>
             @endif
         </div>
