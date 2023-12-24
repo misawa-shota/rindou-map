@@ -21,9 +21,9 @@
         </div>
         <div class="detailpage_img_thumbnail">
             @if (!empty($rindou->rindou_img))
-                <img src="{{ asset('img/'. $rindou->rindou_img) }}" alt="戸川林道の写真" class="img-fluid overflow-hidden">
+                <img src="{{ asset('storage/img/'. $rindou->rindou_img) }}" alt="戸川林道の写真" class="img-fluid overflow-hidden">
             @else
-                <img src="{{ asset('img/no_image.png') }}" alt="No_imageの画像" class="d-block mx-auto">
+                <img src="{{ asset('storage/img/no_image.png') }}" alt="No_imageの画像" class="d-block mx-auto">
             @endif
         </div>
     </div>
@@ -38,7 +38,7 @@
                 <p class="fs-5 lh-lg">{!! nl2br(e($rindou->description)) !!}</p>
             @else
                 <p class="fs-5 lh-lg">
-                    まだ{{ $rindou->name }}に関する情報はありません。<br>
+                    {{ $rindou->name }}に関する情報はありません。<br>
                     情報が更新されるまでお待ち下さい。
                 </p>
             @endif
@@ -66,11 +66,11 @@
                                         @if (!empty($post->img))
                                             <img src="{{ asset('storage/post_img/'. $images[0]) }}" class="img-fluid border border-0 post_img" alt="投稿された画像">
                                             <div class="position-absolute bottom-0 end-0 bg-black opacity-75">
-                                                <img src="{{ asset('img/camera-icon.png') }}" alt="カメラのアイコン画像" class="ms-3 w-25 h-25">
+                                                <img src="{{ asset('storage/img/camera-icon.png') }}" alt="カメラのアイコン画像" class="ms-3 w-25 h-25">
                                                 <span class="ms-3 text-light"><?php echo $count; ?></span>
                                             </div>
                                         @else
-                                            <img src="{{ asset('img/no_image.png') }}" alt="No-imageの画像" class="img-thumbnail border border-0 post_img">
+                                            <img src="{{ asset('storage/img/no_image.png') }}" alt="No-imageの画像" class="img-thumbnail border border-0 post_img">
                                         @endif
                                     </a>
                                 </div>
@@ -97,7 +97,7 @@
                     <span class="fs-4 ms-5">{{ $count }}件</span>
                 </div>
                 <p class="fs-5 lh-lg">
-                    まだ{{ $rindou->name }}に関する投稿はありません。<br>
+                    {{ $rindou->name }}に関する投稿はありません。<br>
                     皆様からの投稿をお待ちしております。
                 </p>
             @endif
