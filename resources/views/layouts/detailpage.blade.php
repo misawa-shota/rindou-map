@@ -34,7 +34,7 @@
         @component('components.header')
         @endcomponent
 
-        <main class="py-4">
+        <main class="pt-4">
             @yield('content')
         </main>
         @component('components.footer')
