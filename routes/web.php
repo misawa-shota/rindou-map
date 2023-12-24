@@ -7,6 +7,8 @@ use App\Http\Controllers\RindouController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ClearController;
+use App\Http\Controllers\RuleController;
+use App\Http\Controllers\PrivacyController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -46,3 +48,7 @@ Route::get('rindous/postList/{rindou}', [RindouController::class, 'postList'])->
 Route::resource('rindous', RindouController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('rule', [RuleController::class, 'index'])->name('rule.index');
+
+Route::get('privacy', [PrivacyController::class, 'index'])->name('privacy.index');

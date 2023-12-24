@@ -3,7 +3,7 @@
 @section('content')
     @if ($prefecture === null)
         {{-- 日本地図と都道府県の一覧ページ --}}
-        <div class="container">
+        <div class="container my-5 py-5">
             <h2 class="fs-1 fw-bold my-5">都道府県一覧で検索</h2>
             <div class="row align-items-center">
                 <div class="col">
@@ -406,7 +406,7 @@
         </div>
     @else
         {{-- 各県の林道一覧ページ --}}
-        <div class="container">
+        <div class="container my-5 py-5">
             <div class="link_nav my-5">
                 <span><a class="link-underline link-underline-opacity-0 link-dark link-opacity-50-hover" href="{{ route('rindous.index') }}">都道府県一覧</a></span>
                 <span class="mx-3">></span>
