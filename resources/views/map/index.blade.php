@@ -1,7 +1,7 @@
 @extends('layouts.map')
 
 @section('content')
-    <div class="container my-5 pt-5">
+    <div class="container-xl my-5 pt-5">
         <div id="map">
             <div class="rindou_name_search">
                 <form action="#" class="d-flex" id="form">

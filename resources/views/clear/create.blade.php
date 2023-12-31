@@ -1,12 +1,12 @@
 @extends('layouts.clearCreate')
 
 @section('content')
-    <div class="container my-5 py-5">
-        <div class="d-flex align-items-center justify-content-between my-5">
-            <h2 class="fw-bold">走行済みの林道登録ページ</h2>
+    <div class="container my-5 pt-5">
+        <div class="d-block d-sm-flex align-items-sm-center justify-content-sm-between text-center text-sm-start">
+            <h2 class="fw-bold mb-sm-3">走行済みの林道登録ページ</h2>
             <a href="{{ route('clear.index') }}" class="link-underline link-underline-opacity-0 link-opacity-75-hover fs-5">一覧へ戻る</a>
         </div>
-        <p>
+        <p class="my-3">
             都道府県と走行した林道名を選択して走行済みの林道に登録して下さい。
         </p>
         <form action="{{ route('clear.store') }}" method="post">

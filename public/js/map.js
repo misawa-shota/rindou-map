@@ -243,3 +243,21 @@ index.addEventListener('click', function(){
     }
 });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// 画面幅に応じて地点検索機能を透過させる機能 ///////////////////////////////////////////////////////////////////////////////////
+const geoCoder = document.getElementsByClassName('leaflet-control-geocoder');
+const mediaQuery = window.matchMedia('(max-width: 479px)');
+
+const widthChange479 = function(e) {
+    if(e.matches) {
+        geoCoder[0].style.opacity = 0;
+    } else {
+        geoCoder[0].style.opacity = 1.0;
+    }
+}
+
+widthChange479(mediaQuery);
+
+mediaQuery.addEventListener('change', widthChange479);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,9 +1,9 @@
 @extends('layouts.postCreate')
 
 @section('content')
-    <div class="container my-5 py-5">
-        <div class="d-flex align-items-center justify-content-between">
-            <h2 class="fw-bold">投稿作成ページ</h2>
+    <div class="container-xl my-5 pt-5">
+        <div class="d-block d-sm-flex align-items-center justify-content-between text-center text-sm-start">
+            <h2 class="fw-bold mb-3 mb-sm-0">投稿作成ページ</h2>
             <a href="{{ route('posts.index') }}" class="link-underline link-underline-opacity-0 link-opacity-75-hover fs-5">投稿一覧ページへ戻る</a>
         </div>
         <p class="my-5">

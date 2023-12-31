@@ -3,16 +3,16 @@
 @section('content')
     @if ($prefecture === null)
         {{-- 日本地図と都道府県の一覧ページ --}}
-        <div class="container my-5 py-5">
-            <h2 class="fs-1 fw-bold my-5">都道府県一覧で検索</h2>
+        <div class="container-xl my-5 py-5">
+            <h2 class="fs-1 fw-bold my-5 text-center text-lg-start">都道府県一覧で検索</h2>
             <div class="row align-items-center">
-                <div class="col">
+                <div class="col-lg-6">
                     <div class="prefectures_list">
                         <dl class="row">
-                            <dt class="col-3"><span class="fs-4" id="hokkaidou">北海道</span></dt>
+                            <dt class="col-12 col-xxl-3"><span class="fs-4" id="hokkaidou">北海道</span></dt>
                             <dd class="col">
                                 <ul class="list-unstyled pt-2">
-                                    <li>
+                                    <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
                                             <button type="submit">北海道</button>
@@ -23,9 +23,9 @@
                             </dd>
                         </dl>
                         <dl class="row">
-                            <dt class="col-3"><span class="fs-4" id="touhoku">東北地方</span></dt>
+                            <dt class="col-12 col-xxl-3"><span class="fs-4" id="touhoku">東北地方</span></dt>
                             <dd class="col">
-                                <ul class="d-flex align-items-center list-unstyled pt-2">
+                                <ul class="d-flex align-items-center justify-content-start flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
@@ -61,7 +61,7 @@
                                             <input type="hidden" value="宮城県" name="prefecture">
                                         </form>
                                     </li>
-                                    <li>
+                                    <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
                                             <button type="submit">福島県</button>
@@ -72,9 +72,9 @@
                             </dd>
                         </dl>
                         <dl class="row">
-                            <dt class="col-3"><span class="fs-4" id="chubu">中部地方</span></dt>
+                            <dt class="col-12 col-xxl-3"><span class="fs-4" id="chubu">中部地方</span></dt>
                             <dd class="col">
-                                <ul class="d-flex align-items-center list-unstyled pt-2">
+                                <ul class="d-flex align-items-center justify-content-start flex-wrap flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
@@ -131,7 +131,7 @@
                                             <input type="hidden" value="岐阜県" name="prefecture">
                                         </form>
                                     </li>
-                                    <li>
+                                    <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
                                             <button type="submit">愛知県</button>
@@ -142,9 +142,9 @@
                             </dd>
                         </dl>
                         <dl class="row">
-                            <dt class="col-3"><span class="fs-4" id="kantou">関東地方</span></dt>
+                            <dt class="col-12 col-xxl-3"><span class="fs-4" id="kantou">関東地方</span></dt>
                             <dd class="col">
-                                <ul class="d-flex align-items-center list-unstyled pt-2">
+                                <ul class="d-flex align-items-center justify-content-start flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
@@ -186,7 +186,7 @@
                                             <input type="hidden" value="埼玉県" name="prefecture">
                                         </form>
                                     </li>
-                                    <li>
+                                    <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
                                             <button type="submit">東京都</button>
@@ -197,9 +197,9 @@
                             </dd>
                         </dl>
                         <dl class="row">
-                            <dt class="col-3"><span class="fs-4" id="kansai">関西地方</span></dt>
+                            <dt class="col-12 col-xxl-3"><span class="fs-4" id="kansai">関西地方</span></dt>
                             <dd class="col">
-                                <ul class="d-flex align-items-center list-unstyled pt-2">
+                                <ul class="d-flex align-items-center justify-content-start flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
@@ -242,7 +242,7 @@
                                             <input type="hidden" value="大阪府" name="prefecture">
                                         </form>
                                     </li>
-                                    <li>
+                                    <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
                                             <button type="submit">奈良県</button>
@@ -253,9 +253,9 @@
                             </dd>
                         </dl>
                         <dl class="row">
-                            <dt class="col-3"><span class="fs-4" id="chugoku">中国地方</span></dt>
+                            <dt class="col-12 col-xxl-3"><span class="fs-4" id="chugoku">中国地方</span></dt>
                             <dd class="col">
-                                <ul class="d-flex align-items-center list-unstyled pt-2">
+                                <ul class="d-flex align-items-center justify-content-start flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
@@ -284,7 +284,7 @@
                                             <input type="hidden" value="島根県" name="prefecture">
                                         </form>
                                     </li>
-                                    <li>
+                                    <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
                                             <button type="submit">広島県</button>
@@ -295,9 +295,9 @@
                             </dd>
                         </dl>
                         <dl class="row">
-                            <dt class="col-3"><span class="fs-4" id="sikoku">四国地方</span></dt>
+                            <dt class="col-12 col-xxl-3"><span class="fs-4" id="sikoku">四国地方</span></dt>
                             <dd class="col">
-                                <ul class="d-flex align-items-center list-unstyled pt-2">
+                                <ul class="d-flex align-items-center justify-content-start flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
@@ -319,7 +319,7 @@
                                             <input type="hidden" value="愛媛県" name="prefecture">
                                         </form>
                                     </li>
-                                    <li>
+                                    <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
                                             <button type="submit">高知県</button>
@@ -330,9 +330,9 @@
                             </dd>
                         </dl>
                         <dl class="row">
-                            <dt class="col-3"><span class="fs-4" id="kyusyu">九州地方</span></dt>
+                            <dt class="col-12 col-xxl-3"><span class="fs-4" id="kyusyu">九州地方</span></dt>
                             <dd class="col">
-                                <ul class="d-flex align-items-center list-unstyled pt-2">
+                                <ul class="d-flex align-items-center justify-content-start flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
@@ -375,7 +375,7 @@
                                             <input type="hidden" value="大分県" name="prefecture">
                                         </form>
                                     </li>
-                                    <li>
+                                    <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
                                             <button type="submit">宮崎県</button>
@@ -386,10 +386,10 @@
                             </dd>
                         </dl>
                         <dl class="row">
-                            <dt class="col-3"><span class="fs-4" id="okinawa">沖縄地方</span></dt>
+                            <dt class="col-12 col-xxl-3"><span class="fs-4" id="okinawa">沖縄地方</span></dt>
                             <dd class="col">
                                 <ul class="list-unstyled pt-2">
-                                    <li>
+                                    <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
                                             @csrf
                                             <button type="submit">沖縄県</button>
@@ -401,18 +401,20 @@
                         </dl>
                     </div>
                 </div>
-                <img src="{{ asset('storage/img/japan_map.png') }}" alt="日本地図の画像" class="col w-50 h-50">
+                <img src="{{ asset('storage/img/japan_map.png') }}" alt="日本地図の画像" class="col-lg-6 w-50 h-50 mx-auto mx-lg-0">
             </div>
         </div>
     @else
         {{-- 各県の林道一覧ページ --}}
-        <div class="container my-5 py-5">
-            <div class="link_nav my-5">
-                <span><a class="link-underline link-underline-opacity-0 link-dark link-opacity-50-hover" href="{{ route('rindous.index') }}">都道府県一覧</a></span>
-                <span class="mx-3">></span>
-                <span>{{ $prefecture }}</span>
+        <div class="container-xl my-5 py-1">
+            <div class="my-5 d-flex justify-content-center d-md-block">
+                <div class="link_nav">
+                    <span><a class="link-underline link-underline-opacity-0 link-dark link-opacity-50-hover" href="{{ route('rindous.index') }}">都道府県一覧</a></span>
+                    <span class="mx-3">></span>
+                    <span>{{ $prefecture }}</span>
+                </div>
             </div>
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center justify-content-center justify-content-md-start">
                 <h2 class="fw-bold">{{ $prefecture }}の林道</h2>
                 <span class="ms-5 fw-bold fs-3 pb-2">{{ $count }}件</span>
             </div>
@@ -431,15 +433,15 @@
                                         <div class="col-md-4">
                                             <a href="{{ route('rindous.show', $rindou) }}?prefecture={{ $prefecture }}" class="img_link">
                                                 @if ($rindou->rindou_img == null)
-                                                    <img src="{{ asset('storage/img/no_image.png') }}" alt="No-imageの画像" class="img-thumbnail">
+                                                    <img src="{{ asset('storage/img/no_image.png') }}" alt="No-imageの画像" class="img-fluid">
                                                 @else
-                                                    <img src="{{ asset('storage/img/'. $rindou->rindou_img) }}" alt="林道の画像" class="img-thumbnail">
+                                                    <img src="{{ asset('storage/img/'. $rindou->rindou_img) }}" alt="林道の画像" class="img-fluid">
                                                 @endif
                                             </a>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
-                                                <div class="mb-4 d-flex align-items-center">
+                                                <div class="mb-4 d-block d-md-flex align-items-center">
                                                     <h3 class="card-title"><a class="link-underline link-underline-opacity-0 link-dark link-opacity-50-hover" href="{{ route('rindous.show', $rindou) }}?prefecture={{ $prefecture }}">{{ $rindou->name }}</a></h3>
                                                     @if (strlen($rindou->distance) >= 4)
                                                         <span class="ms-1 fs-5">（ 約 {{ mb_substr(number_format(round($rindou->distance, -1), 0, '', '.'), 0, 4) }} km ）</span>

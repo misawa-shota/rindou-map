@@ -1,12 +1,16 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
-    <div class="container">
-        <img class="header_icon" src="{{ asset('storage/img/icon.svg') }}" alt="林道のアイコン画像">
-        <a class="navbar-brand fw-bold fs-3" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="container-xl p-0">
+        <div class="d-flex d-lg-block justify-content-lg-around align-items-lg-center flex-fill ps-2">
+            <div class="d-flex align-items-center flex-fill ms-3 ms-lg-0">
+                <img class="header_icon" src="{{ asset('storage/img/icon.svg') }}" alt="林道のアイコン画像">
+                <a class="navbar-brand fw-bold fs-3" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+            </div>
+            <button class="navbar-toggler me-3 me-lg-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
@@ -15,7 +19,7 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto pe-2">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('maps.index') }}">マップで検索</a>
                 </li>

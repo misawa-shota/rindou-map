@@ -1,13 +1,11 @@
 @extends('layouts.clearDelete')
 
 @section('content')
-    <div class="container my-5 py-5">
-        <div class="d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                    <h2 class="fw-bold">走行済みの林道</h2>
-                    <span class="ms-5 fs-3 fw-bold pb-2">{{ $clearCount }}件</span>
-                </div>
+    <div class="container-xl my-5 pt-5">
+        <div class="d-block d-md-flex align-items-md-center justify-content-md-between text-center text-md-start">
+            <div class="d-flex align-items-center mb-3 mb-md-0 justify-content-center justify-conten-md-start">
+                <h2 class="fw-bold">走行済みの林道</h2>
+                <span class="ms-5 fs-3 fw-bold pb-2">{{ $clearCount }}件</span>
             </div>
             <a href="{{ route('clear.create') }}" class="link-underline link-underline-opacity-0 bg-primary py-2 px-5 rounded-pill text-light fs-6 text-center link_btn">走行済みの林道を追加する</a>
         </div>
@@ -17,7 +15,7 @@
         <div class="my-5">
             <div class="row">
                 @foreach ($clears as $clear)
-                    <form action="{{ route('clear.destroy', $clear->id) }}" method="post" class="col-2 my-5 delete_form">
+                    <form action="{{ route('clear.destroy', $clear->id) }}" method="post" class="col-4 col-sm-3 col-md-2 my-1 my-md-5 delete_form">
                         @csrf
                         @method('DELETE')
                         <div class="clear_rindou">
