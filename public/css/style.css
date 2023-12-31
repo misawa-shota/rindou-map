@@ -73,15 +73,8 @@ main {
     .rindou_name_search {
         position: absolute;
         top: 0.6rem;
-        right: 13rem;
+        left: 3rem;
         z-index: 800;
-    }
-
-    @media screen and (max-width: 479px) {
-        .rindou_name_search {
-            right: 0.76rem;
-            z-index: 800;
-        }
     }
 
     .rindou_name_search form {

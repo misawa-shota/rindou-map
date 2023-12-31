@@ -11,26 +11,6 @@ var mymap = new L.map('map', {
 /////////////////////////////////////////////////////////////////////////////////////
 
 
-// 地点検索コントローラー ///////////////////////////////////////////////////////////////
-var osmGeocoder = new L.Control.OSMGeocoder({
-    collapsed: false,
-    text: '検索',
-    placeholder: '地点名、住所で検索',
-    position: 'topright',
-    callback: function(results) {
-        var coords = L.latLng(results[0].lat, results[0].lon);
-        var foundIcon = L.divIcon({
-            className: 'found-icon',
-            iconAnchor: [8, 8],
-        });
-        L.marker(coords, {icon: foundIcon}).addTo(mymap);
-        mymap.setView(coords, 17);
-    }
-});
-mymap.addControl(osmGeocoder);
-////////////////////////////////////////////////////////////////////////////////////
-
-
 // タイルレイヤー ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 地理院タイル
 var gsi = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
@@ -267,21 +247,3 @@ index.addEventListener('click', function(){
     }
 });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// 画面幅に応じて地点検索機能を透過させる機能 /////////////////////////////////////////////////////////////////////////////////////////
-const geoCoder = document.getElementsByClassName('leaflet-control-geocoder');
-const mediaQuery = window.matchMedia('(max-width: 479px)');
-
-const widthChange479 = function(e) {
-    if(e.matches) {
-        geoCoder[0].style.opacity = 0;
-    } else {
-        geoCoder[0].style.opacity = 1.0;
-    }
-}
-
-widthChange479(mediaQuery);
-
-mediaQuery.addEventListener('change', widthChange479);
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
