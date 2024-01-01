@@ -1,19 +1,19 @@
 @extends('layouts.listpage')
 
 @section('content')
-    <div class="container my-5 py-5">
-        <div class="d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center my-5">
-                <h2 class="fw-bold">{{ $rindou->name }}に関する投稿一覧ページ</h2>
-                <span class="ms-5 fs-3 fw-bold pb-2">{{ $count }}件</span>
+    <div class="container-xl my-5 py-5">
+        <div class="d-md-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center my-1 my-md-5 justify-content-center justify-content-md-start">
+                <h2 class="fw-bold">{{ $rindou->name }}に関する投稿一覧</h2>
+                <span class="ms-3 ms-md-5 fs-5 fs-md-3 fw-bold pb-2">{{ $count }}件</span>
             </div>
-            <a href="{{ route('rindous.show', $rindou->id) }}?prefecture={{ $prefecture }}" class="link-underline link-underline-opacity-0 link-opacity-75-hover fs-4">{{ $rindou->name }}の詳細ページ</a>
+            <a href="{{ route('rindous.show', $rindou->id) }}?prefecture={{ $prefecture }}" class="link-underline link-underline-opacity-0 link-opacity-75-hover fs-4 float-end float-md-none">{{ $rindou->name }}の詳細ページ</a>
         </div>
         <div class="my-5">
             @foreach ($posts as $post)
                 <div class="card my-5">
                     <div class="row g-0">
-                        <div class="col-md-4 position-relative">
+                        <div class="col-xl-4 position-relative">
                             <?php
                                 $postImg = $post->img;
                                 $images = explode(",", $postImg);
@@ -31,10 +31,10 @@
                                 @endif
                             </a>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-xl-8">
                             <div class="card-body">
                                 <h3 class="card-title">{{ $post->title }}</h3>
-                                <div class="d-flex align-items-center my-3">
+                                <div class="d-flex align-items-center">
                                     <span class="me-3 text-secondary">{{ $rindou->name }}</span>
                                     <span class="text-secondary">{{ $post->created_at->format('Y/m/d') }}</span>
                                 </div>

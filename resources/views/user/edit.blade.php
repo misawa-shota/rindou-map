@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container my-5 py-5">
-        <div class="d-flex my-5 align-items-center">
+    <div class="container-xl my-5 py-1 py-md-5">
+        <div class="d-block d-md-flex my-5 align-items-center justify-content-md-between text-center text-md-start">
             <h2 class="me-5">プロフィール編集画面</h2>
-            <a href="{{ route('mypage', Auth::user()->id) }}" class="link-underline link-underline-opacity-0 link-opacity-75-hover link-dark fs-5">マイページへ戻る</a>
+            <a href="{{ route('mypage', Auth::user()->id) }}" class="link-underline link-underline-opacity-0 link-opacity-75-hover fs-5 float-end float-md-none">マイページへ戻る</a>
         </div>
         <div class="my-5">
             <form action="{{ route('mypage.update', Auth::user()->id) }}" method="post" enctype="multipart/form-data">
@@ -47,7 +47,7 @@
                     </div>
                     <textarea class="form-control" name="introduction" rows="10">{{ old('introduction', Auth::user()->introduction) }}</textarea>
                 </div>
-                <div class="d-grid gap-2 col-6 mx-auto my-5">
+                <div class="d-grid gap-2 col-8 col-md-6 mx-auto my-5">
                     <button class="btn btn-primary" type="submit">プロフィールを更新する</button>
                 </div>
             </form>
