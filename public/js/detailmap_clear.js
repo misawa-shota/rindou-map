@@ -88,6 +88,17 @@ for(var i = 0; i < markers.length; i++) {
     };
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+    // マーカーをクリックした時に表示する吹き出し /////////////////////////////////////////////////////////////
+    var markerPopup = L.popup();
+    const url = 'http://localhost:8123/rindous/';
+    const params = '?prefecture=';
+    markerPopup.setContent(
+        "<a href='" + url + markers[i].id + params + markers[i].prefecture + "'>" + markers[i].name + "</a>"
+    );
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
     const checkResult = clearList.some(function(clear) {
         return clear.rindou_id == markers[i].id;
     });
@@ -97,13 +108,13 @@ for(var i = 0; i < markers.length; i++) {
             [markers[i].lat, markers[i].lng],
             {icon: clearIcon}
         )
-        .bindPopup(markers[i].name);
+        .bindPopup(markerPopup);
     } else {
         marker = L.marker(
             [markers[i].lat, markers[i].lng],
             {icon: icon}
         )
-        .bindPopup(markers[i].name);
+        .bindPopup(markerPopup);
     }
 
     cluster.addLayer(marker);

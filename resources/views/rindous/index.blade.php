@@ -14,7 +14,6 @@
                                 <ul class="list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">北海道</button>
                                             <input type="hidden" value="北海道" name="prefecture">
                                         </form>
@@ -28,42 +27,36 @@
                                 <ul class="d-flex align-items-center justify-content-start flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">青森県</button>
                                             <input type="hidden" value="青森県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">秋田県</button>
                                             <input type="hidden" value="秋田県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">山形県</button>
                                             <input type="hidden" value="山形県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">岩手県</button>
                                             <input type="hidden" value="岩手県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">宮城県</button>
                                             <input type="hidden" value="宮城県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">福島県</button>
                                             <input type="hidden" value="福島県" name="prefecture">
                                         </form>
@@ -77,63 +70,54 @@
                                 <ul class="d-flex align-items-center justify-content-start flex-wrap flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">新潟県</button>
                                             <input type="hidden" value="新潟県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">富山県</button>
                                             <input type="hidden" value="富山県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">石川県</button>
                                             <input type="hidden" value="石川県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">福井県</button>
                                             <input type="hidden" value="福井県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">長野県</button>
                                             <input type="hidden" value="長野県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">山梨県</button>
                                             <input type="hidden" value="山梨県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">静岡県</button>
                                             <input type="hidden" value="静岡県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">岐阜県</button>
                                             <input type="hidden" value="岐阜県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">愛知県</button>
                                             <input type="hidden" value="愛知県" name="prefecture">
                                         </form>
@@ -147,28 +131,24 @@
                                 <ul class="d-flex align-items-center justify-content-start flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">茨城県</button>
                                             <input type="hidden" value="茨城県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">千葉県</button>
                                             <input type="hidden" value="千葉県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">群馬県</button>
                                             <input type="hidden" value="群馬県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">栃木県</button>
                                             <input type="hidden" value="栃木県" name="prefecture">
                                         </form>
@@ -181,14 +161,12 @@
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">埼玉県</button>
                                             <input type="hidden" value="埼玉県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">東京都</button>
                                             <input type="hidden" value="東京都" name="prefecture">
                                         </form>
@@ -202,49 +180,42 @@
                                 <ul class="d-flex align-items-center justify-content-start flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">滋賀県</button>
                                             <input type="hidden" value="滋賀県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">兵庫県</button>
                                             <input type="hidden" value="兵庫県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">三重県</button>
                                             <input type="hidden" value="三重県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">和歌山県</button>
                                             <input type="hidden" value="和歌山県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">京都府</button>
                                             <input type="hidden" value="京都府" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">大阪府</button>
                                             <input type="hidden" value="大阪府" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">奈良県</button>
                                             <input type="hidden" value="奈良県" name="prefecture">
                                         </form>
@@ -258,35 +229,30 @@
                                 <ul class="d-flex align-items-center justify-content-start flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">鳥取県</button>
                                             <input type="hidden" value="鳥取県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">岡山県</button>
                                             <input type="hidden" value="岡山県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">山口県</button>
                                             <input type="hidden" value="山口県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">島根県</button>
                                             <input type="hidden" value="島根県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">広島県</button>
                                             <input type="hidden" value="広島県" name="prefecture">
                                         </form>
@@ -300,28 +266,24 @@
                                 <ul class="d-flex align-items-center justify-content-start flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">香川県</button>
                                             <input type="hidden" value="香川県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">徳島県</button>
                                             <input type="hidden" value="徳島県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">愛媛県</button>
                                             <input type="hidden" value="愛媛県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">高知県</button>
                                             <input type="hidden" value="高知県" name="prefecture">
                                         </form>
@@ -335,49 +297,42 @@
                                 <ul class="d-flex align-items-center justify-content-start flex-wrap list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">福岡県</button>
                                             <input type="hidden" value="福岡県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">長崎県</button>
                                             <input type="hidden" value="長崎県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">熊本県</button>
                                             <input type="hidden" value="熊本県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">鹿児島県</button>
                                             <input type="hidden" value="鹿児島県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">佐賀県</button>
                                             <input type="hidden" value="佐賀県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">大分県</button>
                                             <input type="hidden" value="大分県" name="prefecture">
                                         </form>
                                     </li>
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">宮崎県</button>
                                             <input type="hidden" value="宮崎県" name="prefecture">
                                         </form>
@@ -391,7 +346,6 @@
                                 <ul class="list-unstyled pt-2">
                                     <li class="me-2">
                                         <form action="{{ route('rindous.index') }}" method="get">
-                                            @csrf
                                             <button type="submit" class="text-black">沖縄県</button>
                                             <input type="hidden" value="沖縄県" name="prefecture">
                                         </form>
