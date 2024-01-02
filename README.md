@@ -1,4 +1,4 @@
-<p align="center"><a href="" target="_blank" style="font-size: 5rem; color: black; text-decoration: none;"><img src="./storage/app/public/img/icon.svg" width="70" alt="林道マップのロゴ">林道マップ</a></p>
+<p align="center"><a href="" target="_blank" style="font-size: 5rem; color: black; text-decoration: none;"><img src="storage/app/public/img/icon.svg" width="70" alt="林道マップのロゴ">林道マップ</a></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -11,6 +11,7 @@
 
 マップ上で林道の位置とルートを確認できる林道検索に特化したアプリケーションです。
 
+![林道マップ](storage/app/public/img/bb46aca167ccec2badcc950f2ba9875f.jpg)
 
 
 
