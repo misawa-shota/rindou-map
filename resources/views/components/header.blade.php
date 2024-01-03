@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
     <div class="container-xl">
         <div class="d-flex align-items-center">
-            <img class="header_icon" src="{{ Storage::disc('s3')->url("rindou-map/img/icon.svg") }}" alt="林道のアイコン画像">
+            <img class="header_icon" src="{{ asset('storage/img/icon.svg') }}" alt="林道のアイコン画像">
             <h1 class="fw-bold m-0">
                 <a class="navbar-brand fs-3" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
