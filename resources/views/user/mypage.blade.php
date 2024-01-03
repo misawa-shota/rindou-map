@@ -3,10 +3,10 @@
 @section('content')
     <div class="position-relative">
         <div class="container-xl position-absolute start-0 end-0 user_icon_position">
-            <img src="{{ asset('storage/icon_img/'. Auth::user()->icon_img) }}" alt="ユーザーのアイコン画像" class="object-fit-cover mypage_icon">
+            <img src="{{ Storage::disk('s3')->url('icon_img/'. Auth::user()->icon_img) }}" alt="ユーザーのアイコン画像" class="object-fit-cover mypage_icon">
         </div>
         <div class="detailpage_img_thumbnail">
-            <img src="{{ asset('storage/icon_img/'. Auth::user()->icon_img) }}" alt="ユーザーのアイコン画像" class="img-fluid overflow-hidden">
+            <img src="{{ Storage::disk('s3')->url('icon_img/'. Auth::user()->icon_img) }}" alt="ユーザーのアイコン画像" class="img-fluid overflow-hidden">
         </div>
     </div>
     <div class="bg-body-secondary py-0 py-md-5">
@@ -54,13 +54,13 @@
                                     ?>
                                     <a href="{{ route('posts.show', $post->id) }}" class="post_img_link">
                                         @if (!empty($post->img))
-                                            <img src="{{ asset('storage/post_img/'. $images[0]) }}" alt="投稿された画像" class="img-fluid border border-0 post_img">
+                                            <img src="{{ Storage::disk('s3')->url('post_img/'. $images[0]) }}" alt="投稿された画像" class="img-fluid border border-0 post_img">
                                             <div class="position-absolute bottom-0 end-0 bg-black opacity-75">
-                                                <img src="{{ asset('storage/img/camera-icon.png') }}" alt="カメラのアイコン画像" class="ms-3 w-25 h-25">
+                                                <img src="{{ Storage::disk('s3')->url('img/camera-icon.png') }}" alt="カメラのアイコン画像" class="ms-3 w-25 h-25">
                                                 <span class="ms-3 text-light"><?php echo $count; ?></span>
                                             </div>
                                         @else
-                                            <img src="{{ asset('storage/img/no_image.png') }}" alt="No-imageの画像" class="img-fluid border border-0 post_img">
+                                            <img src="{{ Storage::disk('s3')->url('img/no_image.png') }}" alt="No-imageの画像" class="img-fluid border border-0 post_img">
                                         @endif
                                     </a>
                                 </div>
@@ -107,11 +107,11 @@
                                     $rindouPrefecture = DB::table('rindous')->select('prefecture')->where('id', $clear->rindou_id)->get();
                                 ?>
                                 @if (!empty($rindouImg[0]->rindou_img))
-                                    <img src="{{ asset('storage/img/'. $rindouImg[0]->rindou_img) }}" alt="林道の画像" class="stamp_rally">
+                                    <img src="{{ Storage::disk('s3')->url('img/'. $rindouImg[0]->rindou_img) }}" alt="林道の画像" class="stamp_rally">
                                 @else
-                                    <img src="{{ asset('storage/img/no_image.png') }}" alt="No_imageの画像" class="stamp_rally">
+                                    <img src="{{ Storage::disk('s3')->url('img/no_image.png') }}" alt="No_imageの画像" class="stamp_rally">
                                 @endif
-                                <img src="{{ asset('storage/img/clear_stamp.png') }}" alt="clearスタンプの画像" class="position-absolute bottom-0 end-0 clear_stamp">
+                                <img src="{{ Storage::disk('s3')->url('img/clear_stamp.png') }}" alt="clearスタンプの画像" class="position-absolute bottom-0 end-0 clear_stamp">
                             </div>
                             <div class="mt-3 text-center">
                                 <span class="d-block fw-bold"><?php echo $rindouName[0]->name; ?></span>

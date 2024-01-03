@@ -9,7 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }} | 林道に特化したマップ検索サービス</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/favicon-ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ Storage::disk('s3')->url('img/favicon-ico') }}">
     <link rel="canonical" href="{{ url()->current() }}">
 
     <meta name="description" content="林道を検索するなら林道マップ! マップ上で林道の位置とルートが確認できるから分かりやすい。あなたの日常に冒険という選択肢を。">
@@ -19,7 +19,7 @@
     <meta property="og:description" content="林道を検索するなら林道マップ! マップ上で林道の位置とルートが確認できるから分かりやすい。あなたの日常に冒険という選択肢を。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->full() }}">
-    <meta property="og:image" content="{{ asset('storage/img/icon.svg') }}">
+    <meta property="og:image" content="{{ Storage::disk('s3')->url('img/icon.svg') }}">
     <meta property="og:locale" content="ja_JP">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@rindoumap_net">

@@ -21,9 +21,9 @@
         </div>
         <div class="detailpage_img_thumbnail">
             @if (!empty($rindou->rindou_img))
-                <img src="{{ asset('storage/img/'. $rindou->rindou_img) }}" alt="戸川林道の写真" class="img-fluid overflow-hidden">
+                <img src="{{ Storage::disk('s3')->url('img/'. $rindou->rindou_img) }}" alt="戸川林道の写真" class="img-fluid overflow-hidden">
             @else
-                <img src="{{ asset('storage/img/no_image.png') }}" alt="No_imageの画像" class="img-fluid d-block mx-auto">
+                <img src="{{ Storage::disk('s3')->url('img/no_image.png') }}" alt="No_imageの画像" class="img-fluid d-block mx-auto">
             @endif
         </div>
     </div>
@@ -66,13 +66,13 @@
                                     ?>
                                     <a href="{{ route('posts.detailpage', $post->id) }}?prefecture={{ $prefecture }}" class="post_img_link">
                                         @if (!empty($post->img))
-                                            <img src="{{ asset('storage/post_img/'. $images[0]) }}" class="img-fluid border border-0 post_img" alt="投稿された画像">
+                                            <img src="{{ Storage::disk('s3')->url('post_img/'. $images[0]) }}" class="img-fluid border border-0 post_img" alt="投稿された画像">
                                             <div class="position-absolute bottom-0 end-0 bg-black opacity-75">
-                                                <img src="{{ asset('storage/img/camera-icon.png') }}" alt="カメラのアイコン画像" class="ms-3 w-25 h-25">
+                                                <img src="{{ Storage::disk('s3')->url('img/camera-icon.png') }}" alt="カメラのアイコン画像" class="ms-3 w-25 h-25">
                                                 <span class="ms-3 text-light"><?php echo $count; ?></span>
                                             </div>
                                         @else
-                                            <img src="{{ asset('storage/img/no_image.png') }}" alt="No-imageの画像" class="img-thumbnail border border-0 post_img">
+                                            <img src="{{ Storage::disk('s3')->url('img/no_image.png') }}" alt="No-imageの画像" class="img-thumbnail border border-0 post_img">
                                         @endif
                                     </a>
                                 </div>

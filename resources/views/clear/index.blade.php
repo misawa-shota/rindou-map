@@ -26,11 +26,11 @@
                                     $rindouPrefecture = DB::table('rindous')->select('prefecture')->where('id', $clear->rindou_id)->get();
                                 ?>
                                 @if (!empty($rindouImg[0]->rindou_img))
-                                    <img src="{{ asset('storage/img/'. $rindouImg[0]->rindou_img) }}" alt="林道の画像" class="stamp_rally clear_rindou_img">
+                                    <img src="{{ Storage::disk('s3')->url('img/'. $rindouImg[0]->rindou_img) }}" alt="林道の画像" class="stamp_rally clear_rindou_img">
                                 @else
-                                    <img src="{{ asset('storage/img/no_image.png') }}" alt="No_imageの画像" class="stamp_rally clear_rindou_img">
+                                    <img src="{{ Storage::disk('s3')->url('img/no_image.png') }}" alt="No_imageの画像" class="stamp_rally clear_rindou_img">
                                 @endif
-                                <img src="{{ asset('storage/img/clear_stamp.png') }}" alt="clearスタンプの画像" class="position-absolute bottom-0 end-0 clear_stamp clear_rindou_img">
+                                <img src="{{ Storage::disk('s3')->url('img/clear_stamp.png') }}" alt="clearスタンプの画像" class="position-absolute bottom-0 end-0 clear_stamp clear_rindou_img">
                             </div>
                             <div class="mt-3 text-center">
                                 <span class="d-block fw-bold"><?php echo $rindouName[0]->name; ?></span>

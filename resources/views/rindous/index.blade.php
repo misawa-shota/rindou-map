@@ -355,7 +355,7 @@
                         </dl>
                     </div>
                 </div>
-                <img src="{{ asset('storage/img/japan_map.png') }}" alt="日本地図の画像" class="col-lg-6 w-50 h-50 mx-auto mx-lg-0">
+                <img src="{{ Storage::disk('s3')->url('img/japan_map.png') }}" alt="日本地図の画像" class="col-lg-6 w-50 h-50 mx-auto mx-lg-0">
             </div>
         </div>
     @else
@@ -387,9 +387,9 @@
                                         <div class="col-md-4">
                                             <a href="{{ route('rindous.show', $rindou) }}?prefecture={{ $prefecture }}" class="img_link">
                                                 @if ($rindou->rindou_img == null)
-                                                    <img src="{{ asset('storage/img/no_image.png') }}" alt="No-imageの画像" class="img-fluid">
+                                                    <img src="{{ Storage::disk('s3')->url('img/no_image.png') }}" alt="No-imageの画像" class="img-fluid">
                                                 @else
-                                                    <img src="{{ asset('storage/img/'. $rindou->rindou_img) }}" alt="林道の画像" class="img-fluid">
+                                                    <img src="{{ Storage::disk('s3')->url('img/'. $rindou->rindou_img) }}" alt="林道の画像" class="img-fluid">
                                                 @endif
                                             </a>
                                         </div>

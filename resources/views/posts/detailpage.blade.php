@@ -15,7 +15,7 @@
                     <span class="text-shadow fs-5 fs-md-3">{{ $post->created_at->format('Y/m/d') }}</span>
                 </div>
                 <div class="d-flex align-items-center my-1 my-md-3">
-                    <span class="me-3"><img  class="object-fit-cover icon_img" src="{{ asset('storage/icon_img/'. $user[0]['icon_img']) }}" alt="ユーザーのアイコン画像"></span>
+                    <span class="me-3"><img  class="object-fit-cover icon_img" src="{{ Storage::disk('s3')->url('icon_img/'. $user[0]['icon_img']) }}" alt="ユーザーのアイコン画像"></span>
                     <span class="text-shadow fs-5 fs-md-3">{{ $user[0]['name'] }}</span>
                 </div>
             </div>
@@ -25,9 +25,9 @@
                 <?php
                     $images = explode(",", $post->img);
                 ?>
-                <img src="{{ asset('storage/post_img/'. $images[0]) }}" alt="{{ $rindou[0]['name'] }}の写真" class="img-fluid overflow-hidden">
+                <img src="{{ Storage::disk('s3')->url('post_img/'. $images[0]) }}" alt="{{ $rindou[0]['name'] }}の写真" class="img-fluid overflow-hidden">
             @else
-                <img src="{{ asset('storage/img/no_image.png') }}" alt="No_imageの画像" class="d-block mx-auto img-fluid">
+                <img src="{{ Storage::disk('s3')->url('img/no_image.png') }}" alt="No_imageの画像" class="d-block mx-auto img-fluid">
             @endif
         </div>
     </div>
@@ -41,12 +41,12 @@
             @if (!empty($post->img))
                 @foreach ($images as $image)
                     <div class="col">
-                        <img src="{{ asset('storage/post_img/'. $image) }}" alt="投稿された画像" class="img-thumbnail border border-0 detail_page_post_img zoom_up">
+                        <img src="{{ Storage::disk('s3')->url('post_img/'. $image) }}" alt="投稿された画像" class="img-thumbnail border border-0 detail_page_post_img zoom_up">
                     </div>
                 @endforeach
             @else
                 <div class="col-3">
-                    <img src="{{ asset('storage/img/no_image.png') }}" alt="No_imageの画像" class="img-thumbnail border border-0">
+                    <img src="{{ Storage::disk('s3')->url('img/no_image.png') }}" alt="No_imageの画像" class="img-thumbnail border border-0">
                 </div>
             @endif
         </div>
