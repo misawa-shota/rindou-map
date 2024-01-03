@@ -6,7 +6,7 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="{{ asset('storage/img/nishizawasenn.jpg') }}" alt="林道の画像" class="img-fluid slide_img"></div>
                 <div class="swiper-slide"><img src="{{ asset('storage/img/mitisakanahatasenn.jpg') }}" alt="林道の画像" class="img-fluid slide_img"></div>
-                <div class="swiper-slide"><img src="{{ asset('storage/img/togawarindou_1.jpg') }}" alt="林道の画像" class="img-fluid slide_img"></div>
+                <div class="swiper-slide"><img src="{{ Storage::disc('s3')->url('img/togawarindou_1.jpg') }}" alt="林道の画像" class="img-fluid slide_img"></div>
                 <div class="swiper-slide"><img src="{{ asset('storage/img/mitisakanahatasenn_2.jpg') }}" alt="林道の画像" class="img-fluid slide_img"></div>
             </div>
         </div>
