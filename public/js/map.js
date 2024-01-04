@@ -172,7 +172,7 @@ for(var i = 0; i < markers.length; i++) {
 
     // マーカーをクリックした時に表示する吹き出し /////////////////////////////////////////////////////////////
     var markerPopup = L.popup();
-    const url = 'http://localhost:8123/rindous/';
+    const url = 'https://rindou-map-a6e1b467f031.herokuapp.com/rindous/';
     const params = '?prefecture=';
     markerPopup.setContent(
         "<a href='" + url + markers[i].id + params + markers[i].prefecture + "'>" + markers[i].name + "</a>"
