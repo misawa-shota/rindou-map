@@ -7,7 +7,7 @@ function prefectureSubmit() {
     var postData = new FormData;
     postData.set('prefecture', document.getElementById('select_box').value);
 
-    fetch('https://rindou-map-a6e1b467f031.herokuapp.com/posts/create/', {
+    fetch('https://rindou-map-a6e1b467f031.herokuapp.com/posts/create', {
         method: 'POST',
         headers: {
             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
