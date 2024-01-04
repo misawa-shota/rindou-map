@@ -27,7 +27,7 @@ var gsiphoto = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{
 });
 
 // OpenStreetMap
-var osm = L.tileLayer('http://tile.openstreetmap.jp/{z}/{x}/{y}.png', {
+var osm = L.tileLayer('https://{s}.tile.openstreetmap.jp/{z}/{x}/{y}.png', {
     attribution: '<a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a>contributors',
 });
 
