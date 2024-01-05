@@ -104,7 +104,7 @@ class PostController extends Controller
             foreach ($files as $file) {
                 $fileName = $file->getClientOriginalName();
                 $fileName = date('Ymd_His').'_'.$fileName;
-                $file->storeAs('public/'. $dir, $fileName);
+                Storage::disk('s3')->putFile($dir, $fileName, 'public');
                 $rindouImgArray[] = $fileName;
             }
             $rindouImgString = implode(",", $rindouImgArray);
@@ -175,7 +175,7 @@ class PostController extends Controller
         if (!empty($oldImgValue)) {
             $oldImgArray = explode(",", $oldImgValue);
             foreach($oldImgArray as $oldImg) {
-                Storage::disk('public')->delete($dir. '/'. $oldImg);
+                Storage::disk('s3')->delete($dir. '/'. $oldImg);
             }
         }
 
@@ -185,7 +185,7 @@ class PostController extends Controller
             foreach ($files as $file) {
                 $fileName = $file->getClientOriginalName();
                 $fileName = date('Ymd_His').'_'.$fileName;
-                $file->storeAs('public/'. $dir, $fileName);
+                Storage::disk('s3')->putFile($dir, $fileName, 'public');
                 $rindouImgArray[] = $fileName;
             }
             $rindouImgString = implode(",", $rindouImgArray);
