@@ -154,7 +154,7 @@ return [
     */
 
     'attributes' => [
-        'rindou_img' => '画像'
+        'rindou_img[]' => '画像'
     ],
 
 ];
