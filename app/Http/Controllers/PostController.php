@@ -104,7 +104,7 @@ class PostController extends Controller
             foreach ($files as $file) {
                 $fileName = $file->getClientOriginalName();
                 $fileName = date('Ymd_His').'_'.$fileName;
-                Storage::disk('s3')->put('/'.$dir, $file, 'public');
+                Storage::disk('s3')->put('/post_img', $fileName, 'public');
                 $rindouImgArray[] = $fileName;
             }
             $rindouImgString = implode(",", $rindouImgArray);
