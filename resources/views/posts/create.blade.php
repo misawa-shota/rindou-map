@@ -115,7 +115,7 @@
                             <span class="error ms-3 mb-2 text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <textarea class="form-control" name="content" value="{{ old('content') }}" rows="10"></textarea>
+                    <textarea class="form-control" name="content" rows="10">{{ old('content') }}</textarea>
                 </div>
                 <div class="d-grid gap-2 col-6 mx-auto my-5">
                     <button class="btn btn-primary" type="submit">投稿する</button>
