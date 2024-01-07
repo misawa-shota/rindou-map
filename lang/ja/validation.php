@@ -153,6 +153,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'rindou_img' => '画像'
+    ],
 
 ];
