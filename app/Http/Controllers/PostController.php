@@ -169,11 +169,13 @@ class PostController extends Controller
         $post->content = $request->content;
 
         $dir = 'post_img';
+        $filePath = 'https://s3-ap-northeast-1.amazonaws.com/rindou-map/post_img/';
         $oldImgValue = $post->getOriginal('img');
         if (!empty($oldImgValue)) {
             $oldImgArray = explode(",", $oldImgValue);
             foreach($oldImgArray as $oldImg) {
-                Storage::disk('s3')->delete($dir. '/'. $oldImg);
+                $fileName = str_replace($filePath, '', $oldImg);
+                Storage::disk('s3')->delete($dir. '/'. $fileName);
             }
         }
 
@@ -201,11 +203,13 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $dir = 'post_img';
+        $filePath = 'https://s3-ap-northeast-1.amazonaws.com/rindou-map/post_img/';
         if (!empty($post->img)) {
             $images = explode(",", $post->img);
 
             foreach ($images as $image) {
-                Storage::disk('s3')->delete($dir. '/'. $image);
+                $fileName = str_replace($filePath, '', $image);
+                Storage::disk('s3')->delete($dir. '/'. $fileName);
             }
         }
 
