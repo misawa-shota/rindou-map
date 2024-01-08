@@ -11,31 +11,37 @@
                 @csrf
                 @method('put')
                 <div class="form-group my-5">
-                    <div class="d-flex align-items-center">
-                        <label class="form-label" for="name">ユーザー名</label>
-                        <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
+                    <div class="d-block d-sm-flex align-items-center">
+                        <div class="d-flex align-items-center">
+                            <label class="form-label" for="name">ユーザー名</label>
+                            <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
+                        </div>
                         @error('name')
-                            <span class="error ms-3 mb-2 text-danger">{{ $message }}</span>
+                            <span class="error ms-sm-3 mb-sm-2 text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <input class="form-control" type="text" name="name" value="{{ old('name', Auth::user()->name) }}">
                 </div>
                 <div class="form-group my-5">
-                    <div class="d-flex align-items-center">
-                        <label class="form-label" for="icon_img">アイコンの画像を選択</label>
-                        <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
+                    <div class="d-block d-sm-flex align-items-center">
+                        <div class="d-flex align-items-center">
+                            <label class="form-label" for="icon_img">アイコンの画像を選択</label>
+                            <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
+                        </div>
                         @error('icon_img')
-                            <span class="error ms-3 mb-2 text-danger">{{ $message }}</span>
+                            <span class="error ms-sm-3 mb-sm-2 text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <input class="form-control" type="file" name="icon_img" accept=".jpeg, .jpg, .png">
                 </div>
                 <div class="form-group my-5">
-                    <div class="d-flex align-items-center">
-                        <label class="form-label" for="email">メールアドレス</label>
-                        <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
+                    <div class="d-block d-sm-flex align-items-center">
+                        <div class="d-flex align-items-center">
+                            <label class="form-label" for="email">メールアドレス</label>
+                            <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
+                        </div>
                         @error('email')
-                            <span class="error ms-3 mb-2 text-danger">{{ $message }}</span>
+                            <span class="error ms-sm-3 mb-sm-2 text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <input class="form-control" type="email" name="email" value="{{ old('email', Auth::user()->email) }}">

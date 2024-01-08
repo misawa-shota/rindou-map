@@ -54,7 +54,7 @@
                                     ?>
                                     <a href="{{ route('posts.show', $post->id) }}" class="post_img_link">
                                         @if (!empty($post->img))
-                                            <img src="{{ Storage::disk('s3')->url('post_img/'. $images[0]) }}" alt="投稿された画像" class="img-fluid border border-0 post_img">
+                                            <img src="<?php echo $images[0]; ?>" alt="投稿された画像" class="img-fluid border border-0 post_img">
                                             <div class="position-absolute bottom-0 end-0 bg-black opacity-75">
                                                 <img src="{{ Storage::disk('s3')->url('img/camera-icon.png') }}" alt="カメラのアイコン画像" class="ms-3 w-25 h-25">
                                                 <span class="ms-3 text-light"><?php echo $count; ?></span>

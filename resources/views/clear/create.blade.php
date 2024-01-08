@@ -12,11 +12,13 @@
         <form action="{{ route('clear.store') }}" method="post">
             @csrf
             <div class="form-group my-5">
-                <div class="d-flex align-items-center">
-                    <label class="form-label" for="prefecture">都道府県を選択</label>
-                    <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
+                <div class="d-block d-sm-flex align-items-center">
+                    <div class="d-flex align-items-center">
+                        <label class="form-label" for="prefecture">都道府県を選択</label>
+                        <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
+                    </div>
                     @error('prefecture')
-                        <span class="error ms-3 mb-2 text-danger">{{ $message }}</span>
+                        <span class="error ms-sm-3 mb-sm-2 text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <select class="form-select" id="select_box" name="prefecture" onchange="prefectureSubmit();">
@@ -71,11 +73,13 @@
                 </select>
             </div>
             <div class="form-group my-5" id="rindou_select_form">
-                <div class="d-flex align-items-center">
-                    <label class="form-label" for="rindou_name">林道の名前を選択</label>
-                    <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
+                <div class="d-block d-sm-flex align-items-center">
+                    <div class="d-flex align-items-center">
+                        <label class="form-label" for="rindou_name">林道の名前を選択</label>
+                        <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
+                    </div>
                     @error('rindou_id')
-                        <span class="error ms-3 mb-2 text-danger">{{ $message }}</span>
+                        <span class="error ms-sm-3 mb-sm-2 text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <select class="form-select" id="rindou_select" name="rindou_id">

@@ -46,6 +46,7 @@
 - Leaflet gridlayer googlemutant
 - Docker/Docker-compose
 - fetch
+- AWS s3
 
 ## データベース構成
 

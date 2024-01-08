@@ -28,7 +28,7 @@
                 <?php
                     $images = explode(",", $post->img);
                 ?>
-                <img src="<?php echo$images[0] ?>" alt="<?php echo $names[0]->name; ?>の写真" class="img-fluid overflow-hidden">
+                <img src="<?php echo $images[0]; ?>" alt="<?php echo $names[0]->name; ?>の写真" class="img-fluid overflow-hidden">
             @else
                 <img src="{{ Storage::disk('s3')->url('img/no_image.png') }}" alt="No_imageの画像" class="img-fluid d-block mx-auto">
             @endif
