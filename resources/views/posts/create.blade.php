@@ -18,7 +18,7 @@
                         <label class="form-label" for="prefecture">都道府県を選択</label>
                         <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
                         @error('prefecture')
-                            <span class="error ms-3 mb-2 text-danger">{{ $message }}</span>
+                            <span class="error ms-3 mb-2 text-danger d-block d-sm-inline">{{ $message }}</span>
                         @enderror
                     </div>
                     <select class="form-select" id="select_box" name="prefecture" onchange="prefectureSubmit();">
@@ -77,7 +77,7 @@
                         <label class="form-label" for="rindou_name">林道の名前を選択</label>
                         <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
                         @error('rindou_id')
-                            <span class="error ms-3 mb-2 text-danger">{{ $message }}</span>
+                            <span class="error ms-3 mb-2 text-danger d-block d-sm-inline">{{ $message }}</span>
                         @enderror
                     </div>
                     <select class="form-select" id="rindou_select" name="rindou_id">
@@ -92,7 +92,7 @@
                         <label class="form-label" for="rindou_img">林道の画像を選択（複数選択可）</label>
                         <span class="bg-secondary text-light ms-2 mb-2 px-1 rounded-pill">任意</span>
                         @error('rindou_img.*')
-                            <span class="error ms-3 mb-2 text-danger">{{ $message }}</span>
+                            <span class="error ms-3 mb-2 text-danger d-block d-sm-inline">{{ $message }}</span>
                         @enderror
                     </div>
                     <input class="form-control" id="formFile" type="file" name="rindou_img[]" accept=".jpeg, .jpg, .png" multiple>
@@ -102,7 +102,7 @@
                         <label class="form-label" for="title">タイトルを入力</label>
                         <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
                         @error('title')
-                            <span class="error ms-3 mb-2 text-danger">{{ $message }}</span>
+                            <span class="error ms-3 mb-2 text-danger d-block d-sm-inline">{{ $message }}</span>
                         @enderror
                     </div>
                     <input class="form-control" name="title" value="{{ old('title') }}">
@@ -112,7 +112,7 @@
                         <label class="form-label" for="content">投稿する内容を入力</label>
                         <span class="bg-danger text-light ms-2 mb-2 px-1 rounded-pill">必須</span>
                         @error('content')
-                            <span class="error ms-3 mb-2 text-danger">{{ $message }}</span>
+                            <span class="error ms-3 mb-2 text-danger d-block d-sm-inline">{{ $message }}</span>
                         @enderror
                     </div>
                     <textarea class="form-control" name="content" rows="10">{{ old('content') }}</textarea>
