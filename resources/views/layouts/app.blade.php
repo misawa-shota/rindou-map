@@ -9,7 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }} | 林道に特化したマップ検索サービス</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{ Storage::disk('s3')->url('img/favicon-ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ Storage::disk('s3')->url('img/favicon.ico') }}">
     <link rel="canonical" href="{{ url()->current() }}">
 
     <meta name="description" content="林道を検索するなら林道マップ! マップ上で林道の位置とルートが確認できるから分かりやすい。あなたの日常に冒険という選択肢を。">

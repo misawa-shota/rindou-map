@@ -98,14 +98,14 @@ class UserController extends Controller
 
         $dir = 'icon_img';
         $oldImgValue = $user->getOriginal('icon_img');
-        Storage::disk('public')->delete($dir. '/'. $oldImgValue);
+        Storage::disk('s3')->delete($dir. '/'. $oldImgValue);
 
+        $filePath = 'https://s3-ap-northeast-1.amazonaws.com/rindou-map/icon_img/';
         $file = $request->file('icon_img');
-        $fileName = $file->getClientOriginalName();
-        $fileName = date('Ymd_His').'_'.$fileName;
-        $file->storeAs('public/'. $dir, $fileName);
-        $rindouImgString = $fileName;
-        $user->icon_img = $rindouImgString;
+        $path = Storage::disk('s3')->putFile('/'. $dir, $file, 'public');
+        $fullPath = Storage::disk('s3')->url($path);
+        $fileName = str_replace($filePath, '', $fullPath);
+        $user->icon_img = $fileName;
 
         $user->save();
 

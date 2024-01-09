@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class RegisterController extends Controller
 {
@@ -66,10 +67,11 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $dir = 'icon_img';
-        $iconImg = $data['icon_img'];
-        $fileName = $iconImg->getClientOriginalname();
-        $fileName = date('Ymd_His').'_'.$fileName;
-        $iconImg->storeAs('public/'.$dir.'/'.$fileName);
+        $filePath = 'https://s3-ap-northeast-1.amazonaws.com/rindou-map/icon_img/';
+        $file = $data['icon_img'];
+        $path = Storage::disk('s3')->putFile('/'. $dir, $file, 'public');
+        $fullPath = Storage::disk('s3')->url($path);
+        $fileName = str_replace($filePath, '', $fullPath);
 
         return User::create([
             'name' => $data['name'],
