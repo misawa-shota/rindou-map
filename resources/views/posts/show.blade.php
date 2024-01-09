@@ -28,7 +28,7 @@
                 <?php
                     $images = explode(",", $post->img);
                 ?>
-                <img src="<?php echo $images[0]; ?>" alt="<?php echo $names[0]->name; ?>の写真" class="img-fluid overflow-hidden">
+                <img src="{{ Storage::disk('s3')->url('post_img/'. $images[0]) }}" alt="<?php echo $names[0]->name; ?>の写真" class="img-fluid overflow-hidden">
             @else
                 <img src="{{ Storage::disk('s3')->url('img/no_image.png') }}" alt="No_imageの画像" class="img-fluid d-block mx-auto">
             @endif
@@ -44,7 +44,7 @@
             @if (!empty($post->img))
                 @foreach ($images as $image)
                     <div class="col">
-                        <img src="<?php echo $image ?>" alt="投稿された画像" class="img-thumbnail border border-0 detail_page_post_img zoom_up">
+                        <img src="{{ Storage::disk('s3')->url('post_img/'. $image) }}" alt="投稿された画像" class="img-thumbnail border border-0 detail_page_post_img zoom_up">
                     </div>
                 @endforeach
             @else

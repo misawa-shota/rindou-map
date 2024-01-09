@@ -99,11 +99,14 @@ class PostController extends Controller
 
         $files = $request->file('rindou_img');
         $dir = 'post_img';
+        $filePath = 'https://s3-ap-northeast-1.amazonaws.com/rindou-map/post_img/';
         if(!empty($files)) {
             $rindouImgArray = [];
             foreach ($files as $file) {
                 $path = Storage::disk('s3')->putFile('/'.$dir, $file, 'public');
-                $rindouImgArray[] = Storage::disk('s3')->url($path);
+                $fullPath = Storage::disk('s3')->url($path);
+                $fileName = str_replace($filePath, '', $fullPath);
+                $rindouImgArray[] = $fileName;
             }
             $rindouImgString = implode(",", $rindouImgArray);
             $post->img = $rindouImgString;
@@ -174,8 +177,7 @@ class PostController extends Controller
         if (!empty($oldImgValue)) {
             $oldImgArray = explode(",", $oldImgValue);
             foreach($oldImgArray as $oldImg) {
-                $fileName = str_replace($filePath, '', $oldImg);
-                Storage::disk('s3')->delete($dir. '/'. $fileName);
+                Storage::disk('s3')->delete($dir. '/'. $oldImg);
             }
         }
 
@@ -184,7 +186,9 @@ class PostController extends Controller
             $rindouImgArray = [];
             foreach ($files as $file) {
                 $path = Storage::disk('s3')->putFile('/'.$dir, $file, 'public');
-                $rindouImgArray[] = Storage::disk('s3')->url($path);
+                $fullPath = Storage::disk('s3')->url($path);
+                $fileName = str_replace($filePath, '', $fullPath);
+                $rindouImgArray[] = $fileName;
             }
             $rindouImgString = implode(",", $rindouImgArray);
             $post->img = $rindouImgString;
@@ -203,13 +207,11 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $dir = 'post_img';
-        $filePath = 'https://s3-ap-northeast-1.amazonaws.com/rindou-map/post_img/';
         if (!empty($post->img)) {
             $images = explode(",", $post->img);
 
             foreach ($images as $image) {
-                $fileName = str_replace($filePath, '', $image);
-                Storage::disk('s3')->delete($dir. '/'. $fileName);
+                Storage::disk('s3')->delete($dir. '/'. $image);
             }
         }
 
