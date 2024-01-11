@@ -23,6 +23,7 @@
     <meta property="og:locale" content="ja_JP">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@rindoumap_net">
+    <meta name="google-site-verification" content="91CjI105Ba5_2jiQYcTriKXW1YRwOv6EttrzmTqWeGE" />
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
