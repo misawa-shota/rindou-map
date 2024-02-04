@@ -9,6 +9,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ClearController;
 use App\Http\Controllers\RuleController;
 use App\Http\Controllers\PrivacyController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -52,3 +53,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('rule', [RuleController::class, 'index'])->name('rule.index');
 
 Route::get('privacy', [PrivacyController::class, 'index'])->name('privacy.index');
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
